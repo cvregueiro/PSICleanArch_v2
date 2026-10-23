@@ -8,13 +8,14 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
+import es.udc.psi.cleanarchv2.app.domain.Artist;
 import es.udc.psi.cleanarchv2.databinding.RowArtistBinding;
 
 public class ArtistAdapter extends Adapter<ArtistAdapter.ArtistHolder> {
 
-    private List<String> mItems;
+    private List<Artist> mItems;
 
-    public ArtistAdapter(List<String> items) {
+    public ArtistAdapter(List<Artist> items) {
 
         mItems = items;
     }
@@ -38,17 +39,23 @@ public class ArtistAdapter extends Adapter<ArtistAdapter.ArtistHolder> {
     public void onBindViewHolder(@NonNull ArtistAdapter.ArtistHolder holder,
                                  int position) {
 
-        holder.mBinding.rowArtistName.setText(mItems.get(position));
+        holder.bind(mItems.get(position));
     }
 
-    public static class ArtistHolder extends RecyclerView.ViewHolder {
+    static class ArtistHolder extends RecyclerView.ViewHolder {
 
         private final RowArtistBinding mBinding;
 
-        public ArtistHolder(RowArtistBinding binding) {
+        private ArtistHolder(RowArtistBinding binding) {
 
             super(binding.getRoot());
             mBinding = binding;
+        }
+
+        private void bind(Artist artist) {
+
+            mBinding.rowArtistId.setText(String.valueOf(artist.getId()));
+            mBinding.rowArtistName.setText(artist.getName());
         }
     }
 
