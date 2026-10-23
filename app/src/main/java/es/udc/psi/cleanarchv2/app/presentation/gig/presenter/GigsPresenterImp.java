@@ -2,25 +2,14 @@ package es.udc.psi.cleanarchv2.app.presentation.gig.presenter;
 
 import android.util.Log;
 
-import java.net.HttpURLConnection;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import es.udc.psi.cleanarchv2.BuildConfig;
-import es.udc.psi.cleanarchv2.app.data.SetListFmAPI;
-import es.udc.psi.cleanarchv2.app.data.interceptor.SetListFmApiInterceptor;
-import es.udc.psi.cleanarchv2.app.domain.SetList;
-import es.udc.psi.cleanarchv2.app.domain.SetLists;
+import es.udc.psi.cleanarchv2.app.domain.exception.ConfigurationException;
+import es.udc.psi.cleanarchv2.app.domain.gig.Gig;
+import es.udc.psi.cleanarchv2.app.domain.gig.service.GigService;
+import es.udc.psi.cleanarchv2.app.executor.TaskRunner;
 import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModel;
 import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModelMapper;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GigsPresenterImp implements GigsPresenter {
 
@@ -28,19 +17,20 @@ public class GigsPresenterImp implements GigsPresenter {
 
     private GigsView mView;
 
-    public GigsPresenterImp(GigsView view) {
+    private final GigService mGigService;
+    private final TaskRunner mTaskRunner;
+
+    public GigsPresenterImp(GigsView view,
+                            GigService gigService,
+                            TaskRunner taskRunner) {
 
         mView = view;
+        mGigService = gigService;
+        mTaskRunner = taskRunner;
     }
 
     @Override
     public void initFlow(String artistId) {
-
-        if (BuildConfig.SETLISTFM_API_KEY.isEmpty()) {
-
-            mView.showMissingApiKey();
-            return;
-        }
 
         mView.showLoading();
         getGigs(artistId);
@@ -54,69 +44,40 @@ public class GigsPresenterImp implements GigsPresenter {
 
     private void getGigs(String artistId) {
 
-        OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
-
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor()
-                .setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
-        // Never write the API key to the log
-        loggingInterceptor.redactHeader("x-api-key");
-        List<Interceptor> interceptors = okHttpClient.interceptors();
-        interceptors.add(new SetListFmApiInterceptor());
-        interceptors.add(loggingInterceptor);
-
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.setlist.fm/rest/1.0/")
-                .client(okHttpClient.build()).addConverterFactory(GsonConverterFactory.create()).build();
-
-        SetListFmAPI api = retrofit.create(SetListFmAPI.class);
-
-        Call<SetLists> call = api.searchSetLists(artistId);
-
-        call.enqueue(new Callback<SetLists>() {
+        mTaskRunner.execute(() -> mGigService.searchGigs(artistId), new TaskRunner.Callback<List<Gig>>() {
 
             @Override
-            public void onResponse(@NonNull Call<SetLists> call,
-                                   @NonNull Response<SetLists> response) {
+            public void onSuccess(List<Gig> gigs) {
 
                 if (mView == null) {
                     return;
                 }
 
-                if (response.isSuccessful() && response.body() != null) {
-
-                    Log.i(TAG, "Response OK: " + response.code());
-                    List<SetList> gigs = response.body().getSetLists();
-                    if (gigs == null || gigs.isEmpty()) {
-                        mView.showEmptyView();
-                    } else {
-                        mView.showGigs(getGigsUiModel(gigs));
-                    }
-
-                } else if (response.code() == HttpURLConnection.HTTP_NOT_FOUND) {
-
-                    // setlist.fm answers 404 when the artist has no setlists
-                    Log.i(TAG, "No gigs: " + response.code());
+                if (gigs.isEmpty()) {
                     mView.showEmptyView();
-
                 } else {
-
-                    Log.e(TAG, "Response fails: " + response.code());
-                    mView.showError();
+                    mView.showGigs(getGigsUiModel(gigs));
                 }
             }
 
             @Override
-            public void onFailure(@NonNull Call<SetLists> call,
-                                  @NonNull Throwable t) {
+            public void onError(Exception exception) {
 
-                Log.e(TAG, "Response fails: " + t.getMessage());
-                if (mView != null) {
+                Log.e(TAG, "Search of gigs fails: " + exception.getMessage());
+                if (mView == null) {
+                    return;
+                }
+
+                if (exception instanceof ConfigurationException) {
+                    mView.showMissingApiKey();
+                } else {
                     mView.showError();
                 }
             }
         });
     }
 
-    private List<GigUiModel> getGigsUiModel(List<SetList> gigs) {
+    private List<GigUiModel> getGigsUiModel(List<Gig> gigs) {
 
         return new GigUiModelMapper(gigs).map();
     }

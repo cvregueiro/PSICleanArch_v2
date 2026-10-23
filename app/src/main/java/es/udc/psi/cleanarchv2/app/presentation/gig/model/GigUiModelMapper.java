@@ -1,24 +1,16 @@
 package es.udc.psi.cleanarchv2.app.presentation.gig.model;
 
 import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-import es.udc.psi.cleanarchv2.app.domain.City;
-import es.udc.psi.cleanarchv2.app.domain.SetList;
-import es.udc.psi.cleanarchv2.app.domain.Venue;
+import es.udc.psi.cleanarchv2.app.domain.gig.Gig;
 
 public class GigUiModelMapper {
 
-    // setlist.fm date format: 28-09-2024
-    private static final String API_DATE_FORMAT = "dd-MM-yyyy";
+    private List<Gig> mGigs;
 
-    private List<SetList> mGigs;
-
-    public GigUiModelMapper(List<SetList> gigs) {
+    public GigUiModelMapper(List<Gig> gigs) {
 
         mGigs = gigs;
     }
@@ -26,51 +18,32 @@ public class GigUiModelMapper {
     public List<GigUiModel> map() {
 
         List<GigUiModel> gigs = new ArrayList<>();
-        for (SetList gig : mGigs) {
-            gigs.add(new GigUiModel(formatDate(gig.getEventDate()), getVenue(gig), getPlace(gig), getTour(gig)));
+        for (Gig gig : mGigs) {
+            gigs.add(new GigUiModel(formatDate(gig), valueOrEmpty(gig.getVenueName()), getPlace(gig), gig.getTourName()));
         }
         return gigs;
     }
 
-    private String formatDate(String eventDate) {
+    private String formatDate(Gig gig) {
 
-        if (eventDate == null) {
+        if (gig.getEventDate() == null) {
             return "";
         }
-
-        try {
-
-            SimpleDateFormat apiFormat = new SimpleDateFormat(API_DATE_FORMAT, Locale.ROOT);
-            return DateFormat.getDateInstance(DateFormat.MEDIUM).format(apiFormat.parse(eventDate));
-
-        } catch (ParseException e) {
-            return eventDate;
-        }
+        return DateFormat.getDateInstance(DateFormat.MEDIUM).format(gig.getEventDate());
     }
 
-    private String getVenue(SetList gig) {
+    private String getPlace(Gig gig) {
 
-        Venue venue = gig.getVenue();
-        return venue != null && venue.getName() != null ? venue.getName() : "";
+        String city = valueOrEmpty(gig.getCityName());
+        String country = valueOrEmpty(gig.getCountryName());
+        if (city.isEmpty() || country.isEmpty()) {
+            return city + country;
+        }
+        return city + ", " + country;
     }
 
-    private String getPlace(SetList gig) {
+    private String valueOrEmpty(String value) {
 
-        Venue venue = gig.getVenue();
-        City city = venue != null ? venue.getCity() : null;
-        if (city == null) {
-            return "";
-        }
-
-        String place = city.getName();
-        if (city.getCountry() != null) {
-            place = place + ", " + city.getCountry().getName();
-        }
-        return place;
-    }
-
-    private String getTour(SetList gig) {
-
-        return gig.getTour() != null ? gig.getTour().getName() : null;
+        return value != null ? value : "";
     }
 }
