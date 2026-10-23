@@ -1,18 +1,25 @@
 package es.udc.psi.cleanarchv2.app.presentation.main;
 
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Toast;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import es.udc.psi.cleanarchv2.BuildConfig;
 import es.udc.psi.cleanarchv2.R;
 import es.udc.psi.cleanarchv2.app.data.MusicBrainzAPI;
 import es.udc.psi.cleanarchv2.app.data.interceptor.MusicBrainzApiInterceptor;
+import es.udc.psi.cleanarchv2.app.domain.Artist;
 import es.udc.psi.cleanarchv2.app.domain.SearchArtists;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
 import es.udc.psi.cleanarchv2.app.presentation.main.adapter.ArtistAdapter;
@@ -54,10 +61,37 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         mAdapter = new ArtistAdapter();
         mBinding.mainList.setAdapter(mAdapter);
 
-        getArtists();
+        mBinding.mainSearchButton.setOnClickListener(v -> searchArtists());
+        mBinding.mainSearchText.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                searchArtists();
+                return true;
+            }
+            return false;
+        });
+
+        showEmptyView(R.string.artists_empty_view);
     }
 
-    private void getArtists() {
+    private void searchArtists() {
+
+        Editable text = mBinding.mainSearchText.getText();
+        String textToSearch = text != null ? text.toString().trim() : "";
+
+        if (textToSearch.isEmpty()) {
+
+            mBinding.mainSearchLayout.setError(getString(R.string.artists_search_empty));
+            return;
+        }
+
+        mBinding.mainSearchLayout.setError(null);
+        hideKeyboard();
+        getArtists(textToSearch);
+    }
+
+    private void getArtists(String textToSearch) {
+
+        showLoading();
 
         OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
 
@@ -72,7 +106,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
         MusicBrainzAPI api = retrofit.create(MusicBrainzAPI.class);
 
-        String query = "artist:rancid";
+        String query = buildQuery(textToSearch);
         String format = "json";
         Call<SearchArtists> call = api.searchArtistByName(query, format);
 
@@ -85,11 +119,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                 if (response.isSuccessful() && response.body() != null) {
 
                     Log.i(TAG, "Response OK: " + response.code());
-                    mAdapter.setItems(response.body().getArtists());
+                    List<Artist> artists = response.body().getArtists();
+                    if (artists == null || artists.isEmpty()) {
+                        showEmptyView(R.string.artists_no_results);
+                    } else {
+                        showArtists(artists);
+                    }
 
                 } else {
 
                     Log.e(TAG, "Response fails: " + response.code());
+                    showError();
                 }
 
             }
@@ -99,8 +139,50 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                                   @NonNull Throwable t) {
 
                 Log.e(TAG, "Response fails: " + t.getMessage());
-                Toast.makeText(MainActivity.this, R.string.error_general, Toast.LENGTH_SHORT).show();
+                showError();
             }
         });
+    }
+
+    // Lucene query of MusicBrainz: the text is searched as a phrase in the artist field
+    private String buildQuery(String textToSearch) {
+
+        String phrase = textToSearch.replace("\\", "\\\\").replace("\"", "\\\"");
+        return "artist:\"" + phrase + "\"";
+    }
+
+    private void showLoading() {
+
+        mBinding.mainProgress.setVisibility(View.VISIBLE);
+        mBinding.mainEmptyView.setVisibility(View.GONE);
+        mBinding.mainList.setVisibility(View.GONE);
+    }
+
+    private void showArtists(List<Artist> artists) {
+
+        mAdapter.setItems(artists);
+        mBinding.mainList.scrollToPosition(0);
+        mBinding.mainProgress.setVisibility(View.GONE);
+        mBinding.mainEmptyView.setVisibility(View.GONE);
+        mBinding.mainList.setVisibility(View.VISIBLE);
+    }
+
+    private void showEmptyView(@StringRes int message) {
+
+        mBinding.mainEmptyView.setText(message);
+        mBinding.mainProgress.setVisibility(View.GONE);
+        mBinding.mainEmptyView.setVisibility(View.VISIBLE);
+        mBinding.mainList.setVisibility(View.GONE);
+    }
+
+    private void showError() {
+
+        showEmptyView(R.string.artists_no_results);
+        Toast.makeText(this, R.string.error_general, Toast.LENGTH_SHORT).show();
+    }
+
+    private void hideKeyboard() {
+
+        WindowCompat.getInsetsController(getWindow(), mBinding.mainSearchText).hide(WindowInsetsCompat.Type.ime());
     }
 }
