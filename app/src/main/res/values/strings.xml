@@ -2,4 +2,10 @@
     <string name="app_name">PSiCleanArch</string>
 
     <string name="error_general">Ups, ha ocurrido un error</string>
+
+    <string name="artists_search_hint">Nombre del artista</string>
+    <string name="artists_search_button">Buscar</string>
+    <string name="artists_search_empty">Escribe el nombre de un artista</string>
+    <string name="artists_empty_view">Busca un artista para ver los resultados</string>
+    <string name="artists_no_results">No hay resultados</string>
 </resources>
