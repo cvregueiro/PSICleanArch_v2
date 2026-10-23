@@ -2,13 +2,13 @@ package es.udc.psi.cleanarchv2.app.presentation.artist.presenter;
 
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.Artist;
+import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModel;
 
 public interface ArtistsView {
 
     void showLoading();
 
-    void showArtists(List<Artist> artists);
+    void showArtists(List<ArtistUiModel> artists);
 
     void showEmptyView();
 

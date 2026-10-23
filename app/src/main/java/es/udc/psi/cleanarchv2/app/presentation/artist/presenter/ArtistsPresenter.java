@@ -1,6 +1,6 @@
 package es.udc.psi.cleanarchv2.app.presentation.artist.presenter;
 
-import es.udc.psi.cleanarchv2.app.domain.Artist;
+import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModel;
 
 public interface ArtistsPresenter {
 
@@ -8,7 +8,7 @@ public interface ArtistsPresenter {
 
     void onSearch(String textToSearch);
 
-    void onClickArtist(Artist artist);
+    void onClickArtist(ArtistUiModel artist);
 
     void onDestroy();
 }
