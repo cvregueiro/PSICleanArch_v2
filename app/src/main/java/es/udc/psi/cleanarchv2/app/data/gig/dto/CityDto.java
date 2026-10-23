@@ -1,17 +1,17 @@
-package es.udc.psi.cleanarchv2.app.domain;
+package es.udc.psi.cleanarchv2.app.data.gig.dto;
 
 import com.google.gson.annotations.SerializedName;
 
-public class City {
+public class CityDto {
 
     @SerializedName("name")
     private String name;
 
     @SerializedName("country")
-    private Country country;
+    private CountryDto country;
 
-    public City(String name,
-                Country country) {
+    public CityDto(String name,
+                CountryDto country) {
 
         this.name = name;
         this.country = country;
@@ -22,7 +22,7 @@ public class City {
         return name;
     }
 
-    public Country getCountry() {
+    public CountryDto getCountry() {
 
         return country;
     }

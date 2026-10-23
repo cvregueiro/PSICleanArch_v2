@@ -1,13 +1,8 @@
-package es.udc.psi.cleanarchv2.app.domain;
-
-import com.google.gson.annotations.SerializedName;
+package es.udc.psi.cleanarchv2.app.domain.artist;
 
 public class Artist {
 
-    @SerializedName("id")
     private String id;
-
-    @SerializedName("name")
     private String name;
 
     public Artist(String id,

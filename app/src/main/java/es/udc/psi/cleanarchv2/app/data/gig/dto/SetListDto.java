@@ -1,8 +1,8 @@
-package es.udc.psi.cleanarchv2.app.domain;
+package es.udc.psi.cleanarchv2.app.data.gig.dto;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SetList {
+public class SetListDto {
 
     @SerializedName("id")
     private String id;
@@ -11,15 +11,15 @@ public class SetList {
     private String eventDate;
 
     @SerializedName("venue")
-    private Venue venue;
+    private VenueDto venue;
 
     @SerializedName("tour")
-    private Tour tour;
+    private TourDto tour;
 
-    public SetList(String id,
+    public SetListDto(String id,
                    String eventDate,
-                   Venue venue,
-                   Tour tour) {
+                   VenueDto venue,
+                   TourDto tour) {
 
         this.id = id;
         this.eventDate = eventDate;
@@ -37,12 +37,12 @@ public class SetList {
         return eventDate;
     }
 
-    public Venue getVenue() {
+    public VenueDto getVenue() {
 
         return venue;
     }
 
-    public Tour getTour() {
+    public TourDto getTour() {
 
         return tour;
     }

@@ -1,19 +1,19 @@
-package es.udc.psi.cleanarchv2.app.domain;
+package es.udc.psi.cleanarchv2.app.data.artist.dto;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class SearchArtists {
+public class SearchArtistsDto {
 
     @SerializedName("count")
     private int count;
 
     @SerializedName("artists")
-    private List<Artist> artists;
+    private List<ArtistDto> artists;
 
-    public SearchArtists(int count,
-                         List<Artist> artists) {
+    public SearchArtistsDto(int count,
+                         List<ArtistDto> artists) {
 
         this.count = count;
         this.artists = artists;
@@ -24,7 +24,7 @@ public class SearchArtists {
         return count;
     }
 
-    public List<Artist> getArtists() {
+    public List<ArtistDto> getArtists() {
 
         return artists;
     }
