@@ -33,3 +33,4 @@ Para ver los cambios de una feature: `git log --oneline develop..feature/NN_nomb
 | [`feature/03_retrofit_1`](docs/03_retrofit_1.md) | Monolítica | Retrofit síncrono (y por qué falla en el hilo principal) |
 | [`feature/04_retrofit_async`](docs/04_retrofit_async.md) | Monolítica | Retrofit asíncrono con `enqueue` |
 | [`feature/05_models`](docs/05_models.md) | Monolítica | Modelos que encajan con el JSON de MusicBrainz |
+| [`feature/06_retrofit_logging`](docs/06_retrofit_logging.md) | Monolítica | Logging HTTP con OkHttp |
