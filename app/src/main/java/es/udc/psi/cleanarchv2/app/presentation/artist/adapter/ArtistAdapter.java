@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.presentation.main.adapter;
+package es.udc.psi.cleanarchv2.app.presentation.artist.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
