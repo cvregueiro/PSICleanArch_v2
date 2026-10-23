@@ -23,6 +23,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".app.presentation.gig.GigsActivity"
+            android:exported="false"
+            android:parentActivityName=".app.presentation.main.MainActivity" />
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

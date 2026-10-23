@@ -22,6 +22,7 @@ import es.udc.psi.cleanarchv2.app.data.interceptor.MusicBrainzApiInterceptor;
 import es.udc.psi.cleanarchv2.app.domain.Artist;
 import es.udc.psi.cleanarchv2.app.domain.SearchArtists;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
+import es.udc.psi.cleanarchv2.app.presentation.gig.GigsActivity;
 import es.udc.psi.cleanarchv2.app.presentation.main.adapter.ArtistAdapter;
 import es.udc.psi.cleanarchv2.databinding.ActivityMainBinding;
 import okhttp3.Interceptor;
@@ -33,7 +34,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends BaseActivity<ActivityMainBinding> {
+public class MainActivity extends BaseActivity<ActivityMainBinding> implements ArtistAdapter.OnArtistClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -53,12 +54,18 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         return ActivityMainBinding.inflate(inflater);
     }
 
+    @Override
+    public void onArtistClick(Artist artist) {
+
+        startActivity(GigsActivity.newIntent(this, artist.getId(), artist.getName()));
+    }
+
     private void setUpView() {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mBinding.mainList.setLayoutManager(linearLayoutManager);
 
-        mAdapter = new ArtistAdapter();
+        mAdapter = new ArtistAdapter(this);
         mBinding.mainList.setAdapter(mAdapter);
 
         mBinding.mainSearchButton.setOnClickListener(v -> searchArtists());
