@@ -14,12 +14,12 @@ import androidx.appcompat.app.ActionBar;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import es.udc.psi.cleanarchv2.R;
-import es.udc.psi.cleanarchv2.app.domain.SetList;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
 import es.udc.psi.cleanarchv2.app.presentation.gig.adapter.GigAdapter;
 import es.udc.psi.cleanarchv2.app.presentation.gig.presenter.GigsPresenter;
 import es.udc.psi.cleanarchv2.app.presentation.gig.presenter.GigsPresenterImp;
 import es.udc.psi.cleanarchv2.app.presentation.gig.presenter.GigsView;
+import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModel;
 import es.udc.psi.cleanarchv2.databinding.ActivityGigsBinding;
 
 public class GigsActivity extends BaseActivity<ActivityGigsBinding> implements GigsView {
@@ -81,7 +81,7 @@ public class GigsActivity extends BaseActivity<ActivityGigsBinding> implements G
     }
 
     @Override
-    public void showGigs(List<SetList> gigs) {
+    public void showGigs(List<GigUiModel> gigs) {
 
         mAdapter.setItems(gigs);
         mBinding.gigsProgress.setVisibility(View.GONE);

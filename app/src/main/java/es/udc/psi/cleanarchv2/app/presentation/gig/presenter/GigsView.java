@@ -2,13 +2,13 @@ package es.udc.psi.cleanarchv2.app.presentation.gig.presenter;
 
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.SetList;
+import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModel;
 
 public interface GigsView {
 
     void showLoading();
 
-    void showGigs(List<SetList> gigs);
+    void showGigs(List<GigUiModel> gigs);
 
     void showEmptyView();
 
