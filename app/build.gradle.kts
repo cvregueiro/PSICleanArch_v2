@@ -1,5 +1,15 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
+}
+
+// Private values (sdk.dir, API keys...) that must never be committed
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) {
+        file.inputStream().use { load(it) }
+    }
 }
 
 android {
@@ -14,6 +24,14 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // setlist.fm API key: add "setlistfm.apikey=YOUR_API_KEY" to local.properties
+        // (get one at https://www.setlist.fm/settings/api)
+        buildConfigField(
+            "String",
+            "SETLISTFM_API_KEY",
+            "\"${localProperties.getProperty("setlistfm.apikey", "")}\""
+        )
     }
 
     buildTypes {
