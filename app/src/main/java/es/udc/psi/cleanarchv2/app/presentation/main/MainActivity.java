@@ -3,24 +3,29 @@ package es.udc.psi.cleanarchv2.app.presentation.main;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.widget.Toast;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import es.udc.psi.cleanarchv2.R;
 import es.udc.psi.cleanarchv2.app.data.MusicBrainzAPI;
 import es.udc.psi.cleanarchv2.app.domain.Artist;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
 import es.udc.psi.cleanarchv2.app.presentation.main.adapter.ArtistAdapter;
 import es.udc.psi.cleanarchv2.databinding.ActivityMainBinding;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    private ArtistAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +46,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mBinding.mainList.setLayoutManager(linearLayoutManager);
 
-        ArtistAdapter adapter = new ArtistAdapter(getArtists());
-        mBinding.mainList.setAdapter(adapter);
+        mAdapter = new ArtistAdapter();
+        mBinding.mainList.setAdapter(mAdapter);
+
+        getArtists();
     }
 
-    private List<Artist> getArtists() {
+    private void getArtists() {
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://musicbrainz.org/ws/2/")
                 .addConverterFactory(GsonConverterFactory.create()).build();
@@ -56,16 +63,32 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         String format = "json";
         Call<List<Artist>> call = api.searchArtistByName(query, format);
 
-        try {
+        call.enqueue(new Callback<List<Artist>>() {
 
-            // Synchronous call on the main thread: Android throws a NetworkOnMainThreadException.
-            // It is solved in the next feature with an asynchronous call.
-            return call.execute().body();
+            @Override
+            public void onResponse(@NonNull Call<List<Artist>> call,
+                                   @NonNull Response<List<Artist>> response) {
 
-        } catch (IOException | RuntimeException e) {
-            Log.e(TAG, "Response fails", e);
-        }
+                if (response.isSuccessful() && response.body() != null) {
 
-        return new ArrayList<>();
+                    Log.i(TAG, "Response OK: " + response.code());
+                    mAdapter.setItems(response.body());
+
+                } else {
+
+                    Log.e(TAG, "Response fails: " + response.code());
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<Artist>> call,
+                                  @NonNull Throwable t) {
+
+                // MusicBrainz returns an object (not a list): it is solved in the next feature
+                Log.e(TAG, "Response fails: " + t.getMessage());
+                Toast.makeText(MainActivity.this, R.string.error_general, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

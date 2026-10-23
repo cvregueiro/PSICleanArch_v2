@@ -31,3 +31,4 @@ Para ver los cambios de una feature: `git log --oneline develop..feature/NN_nomb
 | [`feature/01_lista_de_artistas`](docs/01_lista_de_artistas.md) | Monolítica | RecyclerView y ViewBinding (sustituye a ButterKnife) |
 | [`feature/02_model_artist`](docs/02_model_artist.md) | Monolítica | Modelo `Artist` |
 | [`feature/03_retrofit_1`](docs/03_retrofit_1.md) | Monolítica | Retrofit síncrono (y por qué falla en el hilo principal) |
+| [`feature/04_retrofit_async`](docs/04_retrofit_async.md) | Monolítica | Retrofit asíncrono con `enqueue` |
