@@ -10,6 +10,8 @@ import es.udc.psi.cleanarchv2.app.data.MusicBrainzAPI;
 import es.udc.psi.cleanarchv2.app.data.interceptor.MusicBrainzApiInterceptor;
 import es.udc.psi.cleanarchv2.app.domain.Artist;
 import es.udc.psi.cleanarchv2.app.domain.SearchArtists;
+import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModel;
+import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModelMapper;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -53,7 +55,7 @@ public class ArtistsPresenterImp implements ArtistsPresenter {
     }
 
     @Override
-    public void onClickArtist(Artist artist) {
+    public void onClickArtist(ArtistUiModel artist) {
 
         mView.navigateToGigs(artist.getId(), artist.getName());
     }
@@ -100,7 +102,7 @@ public class ArtistsPresenterImp implements ArtistsPresenter {
                     if (artists == null || artists.isEmpty()) {
                         mView.showNoResults();
                     } else {
-                        mView.showArtists(artists);
+                        mView.showArtists(getArtistsUiModel(artists));
                     }
 
                 } else {
@@ -121,6 +123,11 @@ public class ArtistsPresenterImp implements ArtistsPresenter {
                 }
             }
         });
+    }
+
+    private List<ArtistUiModel> getArtistsUiModel(List<Artist> artists) {
+
+        return new ArtistUiModelMapper(artists).map();
     }
 
     // Lucene query of MusicBrainz: the text is searched as a phrase in the artist field

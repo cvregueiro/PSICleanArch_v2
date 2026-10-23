@@ -11,6 +11,8 @@ import es.udc.psi.cleanarchv2.app.data.SetListFmAPI;
 import es.udc.psi.cleanarchv2.app.data.interceptor.SetListFmApiInterceptor;
 import es.udc.psi.cleanarchv2.app.domain.SetList;
 import es.udc.psi.cleanarchv2.app.domain.SetLists;
+import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModel;
+import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModelMapper;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -86,7 +88,7 @@ public class GigsPresenterImp implements GigsPresenter {
                     if (gigs == null || gigs.isEmpty()) {
                         mView.showEmptyView();
                     } else {
-                        mView.showGigs(gigs);
+                        mView.showGigs(getGigsUiModel(gigs));
                     }
 
                 } else if (response.code() == HttpURLConnection.HTTP_NOT_FOUND) {
@@ -112,5 +114,10 @@ public class GigsPresenterImp implements GigsPresenter {
                 }
             }
         });
+    }
+
+    private List<GigUiModel> getGigsUiModel(List<SetList> gigs) {
+
+        return new GigUiModelMapper(gigs).map();
     }
 }

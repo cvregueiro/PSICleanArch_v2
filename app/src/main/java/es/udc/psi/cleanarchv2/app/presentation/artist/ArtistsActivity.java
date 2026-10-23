@@ -13,12 +13,12 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import es.udc.psi.cleanarchv2.R;
-import es.udc.psi.cleanarchv2.app.domain.Artist;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
 import es.udc.psi.cleanarchv2.app.presentation.artist.adapter.ArtistAdapter;
 import es.udc.psi.cleanarchv2.app.presentation.artist.presenter.ArtistsPresenter;
 import es.udc.psi.cleanarchv2.app.presentation.artist.presenter.ArtistsPresenterImp;
 import es.udc.psi.cleanarchv2.app.presentation.artist.presenter.ArtistsView;
+import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModel;
 import es.udc.psi.cleanarchv2.app.presentation.gig.GigsActivity;
 import es.udc.psi.cleanarchv2.databinding.ActivityMainBinding;
 
@@ -56,7 +56,7 @@ public class ArtistsActivity extends BaseActivity<ActivityMainBinding>
     }
 
     @Override
-    public void onArtistClick(Artist artist) {
+    public void onArtistClick(ArtistUiModel artist) {
 
         mPresenter.onClickArtist(artist);
     }
@@ -70,7 +70,7 @@ public class ArtistsActivity extends BaseActivity<ActivityMainBinding>
     }
 
     @Override
-    public void showArtists(List<Artist> artists) {
+    public void showArtists(List<ArtistUiModel> artists) {
 
         mAdapter.setItems(artists);
         mBinding.mainList.scrollToPosition(0);

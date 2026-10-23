@@ -9,17 +9,17 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
-import es.udc.psi.cleanarchv2.app.domain.Artist;
+import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModel;
 import es.udc.psi.cleanarchv2.databinding.RowArtistBinding;
 
 public class ArtistAdapter extends Adapter<ArtistAdapter.ArtistHolder> {
 
     public interface OnArtistClickListener {
 
-        void onArtistClick(Artist artist);
+        void onArtistClick(ArtistUiModel artist);
     }
 
-    private List<Artist> mItems;
+    private List<ArtistUiModel> mItems;
 
     private final OnArtistClickListener mListener;
 
@@ -29,7 +29,7 @@ public class ArtistAdapter extends Adapter<ArtistAdapter.ArtistHolder> {
         mListener = listener;
     }
 
-    public void setItems(List<Artist> items) {
+    public void setItems(List<ArtistUiModel> items) {
 
         mItems = items;
         notifyDataSetChanged();
@@ -67,7 +67,7 @@ public class ArtistAdapter extends Adapter<ArtistAdapter.ArtistHolder> {
             mBinding = binding;
         }
 
-        private void bind(Artist artist,
+        private void bind(ArtistUiModel artist,
                           OnArtistClickListener listener) {
 
             mBinding.rowArtistId.setText(artist.getId());

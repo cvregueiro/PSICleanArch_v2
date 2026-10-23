@@ -10,21 +10,19 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
-import es.udc.psi.cleanarchv2.app.domain.City;
-import es.udc.psi.cleanarchv2.app.domain.SetList;
-import es.udc.psi.cleanarchv2.app.domain.Venue;
+import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModel;
 import es.udc.psi.cleanarchv2.databinding.RowGigBinding;
 
 public class GigAdapter extends Adapter<GigAdapter.GigHolder> {
 
-    private List<SetList> mItems;
+    private List<GigUiModel> mItems;
 
     public GigAdapter() {
 
         mItems = new ArrayList<>();
     }
 
-    public void setItems(List<SetList> items) {
+    public void setItems(List<GigUiModel> items) {
 
         mItems = items;
         notifyDataSetChanged();
@@ -62,33 +60,13 @@ public class GigAdapter extends Adapter<GigAdapter.GigHolder> {
             mBinding = binding;
         }
 
-        private void bind(SetList gig) {
+        private void bind(GigUiModel gig) {
 
-            mBinding.rowGigDate.setText(gig.getEventDate());
-
-            Venue venue = gig.getVenue();
-            String venueName = "";
-            String place = "";
-            if (venue != null) {
-
-                venueName = venue.getName();
-                City city = venue.getCity();
-                if (city != null) {
-                    place = city.getName();
-                    if (city.getCountry() != null) {
-                        place = place + ", " + city.getCountry().getName();
-                    }
-                }
-            }
-            mBinding.rowGigVenue.setText(venueName);
-            mBinding.rowGigPlace.setText(place);
-
-            if (gig.getTour() != null) {
-                mBinding.rowGigTour.setText(gig.getTour().getName());
-                mBinding.rowGigTour.setVisibility(View.VISIBLE);
-            } else {
-                mBinding.rowGigTour.setVisibility(View.GONE);
-            }
+            mBinding.rowGigDate.setText(gig.getDate());
+            mBinding.rowGigVenue.setText(gig.getVenue());
+            mBinding.rowGigPlace.setText(gig.getPlace());
+            mBinding.rowGigTour.setText(gig.getTour());
+            mBinding.rowGigTour.setVisibility(gig.hasTour() ? View.VISIBLE : View.GONE);
         }
     }
 
