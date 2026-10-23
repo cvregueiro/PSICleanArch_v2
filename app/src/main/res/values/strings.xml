@@ -8,4 +8,7 @@
     <string name="artists_search_empty">Escribe el nombre de un artista</string>
     <string name="artists_empty_view">Busca un artista para ver los resultados</string>
     <string name="artists_no_results">No hay resultados</string>
+
+    <string name="gigs_no_results">No hay bolos registrados para este artista</string>
+    <string name="gigs_no_api_key">Falta la API key de setlist.fm: añade setlistfm.apikey a local.properties</string>
 </resources>
