@@ -13,6 +13,7 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import es.udc.psi.cleanarchv2.R;
+import es.udc.psi.cleanarchv2.app.data.artist.ArtistDatasourceImp;
 import es.udc.psi.cleanarchv2.app.domain.artist.service.ArtistServiceImp;
 import es.udc.psi.cleanarchv2.app.executor.TaskRunner;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
@@ -40,7 +41,7 @@ public class ArtistsActivity extends BaseActivity<ActivityMainBinding>
 
         setUpView();
 
-        mPresenter = new ArtistsPresenterImp(this, new ArtistServiceImp(), new TaskRunner());
+        mPresenter = new ArtistsPresenterImp(this, new ArtistServiceImp(new ArtistDatasourceImp()), new TaskRunner());
         mPresenter.initFlow();
     }
 
