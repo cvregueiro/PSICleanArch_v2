@@ -3,6 +3,7 @@ package es.udc.psi.cleanarchv2.app.presentation.main.adapter;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -15,9 +16,15 @@ public class ArtistAdapter extends Adapter<ArtistAdapter.ArtistHolder> {
 
     private List<Artist> mItems;
 
-    public ArtistAdapter(List<Artist> items) {
+    public ArtistAdapter() {
+
+        mItems = new ArrayList<>();
+    }
+
+    public void setItems(List<Artist> items) {
 
         mItems = items;
+        notifyDataSetChanged();
     }
 
     @NonNull
