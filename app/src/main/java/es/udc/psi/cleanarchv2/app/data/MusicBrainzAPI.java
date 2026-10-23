@@ -1,9 +1,7 @@
 package es.udc.psi.cleanarchv2.app.data;
 
-import java.util.List;
-
 import es.udc.psi.cleanarchv2.BuildConfig;
-import es.udc.psi.cleanarchv2.app.domain.Artist;
+import es.udc.psi.cleanarchv2.app.domain.SearchArtists;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -15,6 +13,6 @@ public interface MusicBrainzAPI {
     // MusicBrainz rejects requests without a meaningful User-Agent
     @Headers("User-Agent: PSiCleanArch/" + BuildConfig.VERSION_NAME + " ( cvazquez@udc.es )")
     @GET("artist/")
-    Call<List<Artist>> searchArtistByName(@Query("query") String query,
-                                          @Query("fmt") String format);
+    Call<SearchArtists> searchArtistByName(@Query("query") String query,
+                                           @Query("fmt") String format);
 }

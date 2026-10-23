@@ -5,13 +5,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.Toast;
 
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import es.udc.psi.cleanarchv2.R;
 import es.udc.psi.cleanarchv2.app.data.MusicBrainzAPI;
-import es.udc.psi.cleanarchv2.app.domain.Artist;
+import es.udc.psi.cleanarchv2.app.domain.SearchArtists;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
 import es.udc.psi.cleanarchv2.app.presentation.main.adapter.ArtistAdapter;
 import es.udc.psi.cleanarchv2.databinding.ActivityMainBinding;
@@ -61,18 +59,18 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
         String query = "artist:rancid";
         String format = "json";
-        Call<List<Artist>> call = api.searchArtistByName(query, format);
+        Call<SearchArtists> call = api.searchArtistByName(query, format);
 
-        call.enqueue(new Callback<List<Artist>>() {
+        call.enqueue(new Callback<SearchArtists>() {
 
             @Override
-            public void onResponse(@NonNull Call<List<Artist>> call,
-                                   @NonNull Response<List<Artist>> response) {
+            public void onResponse(@NonNull Call<SearchArtists> call,
+                                   @NonNull Response<SearchArtists> response) {
 
                 if (response.isSuccessful() && response.body() != null) {
 
                     Log.i(TAG, "Response OK: " + response.code());
-                    mAdapter.setItems(response.body());
+                    mAdapter.setItems(response.body().getArtists());
 
                 } else {
 
@@ -82,10 +80,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             }
 
             @Override
-            public void onFailure(@NonNull Call<List<Artist>> call,
+            public void onFailure(@NonNull Call<SearchArtists> call,
                                   @NonNull Throwable t) {
 
-                // MusicBrainz returns an object (not a list): it is solved in the next feature
                 Log.e(TAG, "Response fails: " + t.getMessage());
                 Toast.makeText(MainActivity.this, R.string.error_general, Toast.LENGTH_SHORT).show();
             }
