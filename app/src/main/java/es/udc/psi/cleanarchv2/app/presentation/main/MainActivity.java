@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import es.udc.psi.cleanarchv2.BuildConfig;
 import es.udc.psi.cleanarchv2.R;
 import es.udc.psi.cleanarchv2.app.data.MusicBrainzAPI;
+import es.udc.psi.cleanarchv2.app.data.interceptor.MusicBrainzApiInterceptor;
 import es.udc.psi.cleanarchv2.app.domain.SearchArtists;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
 import es.udc.psi.cleanarchv2.app.presentation.main.adapter.ArtistAdapter;
@@ -64,6 +65,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                 .setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
         List<Interceptor> interceptors = okHttpClient.interceptors();
         interceptors.add(loggingInterceptor);
+        interceptors.add(new MusicBrainzApiInterceptor());
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://musicbrainz.org/ws/2/").client(okHttpClient.build())
                 .addConverterFactory(GsonConverterFactory.create()).build();
