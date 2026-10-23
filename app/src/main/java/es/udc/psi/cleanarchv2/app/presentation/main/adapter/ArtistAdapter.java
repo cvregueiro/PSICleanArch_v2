@@ -61,7 +61,7 @@ public class ArtistAdapter extends Adapter<ArtistAdapter.ArtistHolder> {
 
         private void bind(Artist artist) {
 
-            mBinding.rowArtistId.setText(String.valueOf(artist.getId()));
+            mBinding.rowArtistId.setText(artist.getId());
             mBinding.rowArtistName.setText(artist.getName());
         }
     }
