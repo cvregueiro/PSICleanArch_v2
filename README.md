@@ -29,3 +29,4 @@ Para ver los cambios de una feature: `git log --oneline develop..feature/NN_nomb
 | Rama | Fase | Contenido |
 |------|------|-----------|
 | [`feature/01_lista_de_artistas`](docs/01_lista_de_artistas.md) | Monolítica | RecyclerView y ViewBinding (sustituye a ButterKnife) |
+| [`feature/02_model_artist`](docs/02_model_artist.md) | Monolítica | Modelo `Artist` |
