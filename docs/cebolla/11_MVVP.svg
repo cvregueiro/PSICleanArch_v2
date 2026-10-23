@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1297" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <title>Rama 11 · MVVP (UiModels) en la arquitectura en cebolla</title>
+  <defs>
+    <marker id="bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker>
+    <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker>
+  </defs>
+  <rect width="1000" height="1297" fill="#eceff1"/>
+  <rect x="0" y="0" width="1000" height="64" fill="#37474f"/>
+  <text x="500.0" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">Rama 11 · MVVP (UiModels) en la arquitectura en cebolla</text>
+  <text x="500.0" y="52" text-anchor="middle" font-size="13" fill="#cfd8dc">La vista recibe modelos preparados para pintarse, no los modelos JSON</text>
+  <rect x="0" y="1080" width="1000" height="1297" fill="#ffffff"/>
+  <circle cx="500" cy="600" r="410" fill="#dbe8ff" stroke="#5b8def" stroke-width="2"/>
+  <path d="M500,190 A410,410 0 0 1 500,1010 Z" fill="#dcf3e2" stroke="#3fa35b" stroke-width="2"/>
+  <circle cx="500" cy="600" r="215" fill="#ffe7c2" stroke="#e39b26" stroke-width="2"/>
+  <circle cx="500" cy="600" r="95" fill="#ffc98a" stroke="#d27a10" stroke-width="2"/>
+  <line x1="500" y1="190" x2="500" y2="385" stroke="#78909c" stroke-dasharray="5,4"/>
+  <line x1="500" y1="815" x2="500" y2="1010" stroke="#78909c" stroke-dasharray="5,4"/>
+  <text x="500" y="104" text-anchor="middle" font-size="14" font-weight="700" fill="#37474f">FRAMEWORKS Y DRIVERS</text>
+  <rect x="341.1" y="113" width="317.8" height="18" rx="9" fill="#ffffff" fill-opacity="0.75" stroke="#f9a825" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <text x="500.0" y="126" text-anchor="middle" fill="#1a1a1a" font-size="12.5">Adaptadores RecyclerView: solo asignan textos</text>
+  <rect x="334.4" y="133" width="331.2" height="18" rx="9" fill="#ffffff" fill-opacity="0.75" stroke="#f9a825" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <text x="500.0" y="146" text-anchor="middle" fill="#1a1a1a" font-size="12.5">ArtistsActivity · GigsActivity reciben UiModels</text>
+  <text x="500.0" y="1036" text-anchor="middle" fill="#546e7a" font-size="12.5">Retrofit · OkHttp · Gson · BuildConfig</text>
+  <text x="500.0" y="1056" text-anchor="middle" fill="#546e7a" font-size="12.5">API REST de MusicBrainz · API REST de setlist.fm</text>
+  <text x="488" y="262" text-anchor="end" font-size="14" font-weight="700" fill="#1f4fbf">PRESENTACIÓN · :app</text>
+  <rect x="237.7" y="272" width="250.3" height="18" rx="9" fill="#ffffff" fill-opacity="0.75" stroke="#f9a825" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <text x="362.9" y="285" text-anchor="middle" fill="#1a1a1a" font-size="12.5">ArtistsView · GigsView con UiModels</text>
+  <rect x="183.8" y="293" width="304.2" height="18" rx="9" fill="#ffffff" fill-opacity="0.75" stroke="#c62828" stroke-width="2" stroke-dasharray="none"/>
+  <text x="335.9" y="306" text-anchor="middle" fill="#1a1a1a" font-size="12.5">ArtistsPresenterImp: mapea antes de mostrar</text>
+  <rect x="204.0" y="314" width="284.0" height="18" rx="9" fill="#ffffff" fill-opacity="0.75" stroke="#c62828" stroke-width="2" stroke-dasharray="none"/>
+  <text x="346.0" y="327" text-anchor="middle" fill="#1a1a1a" font-size="12.5">GigsPresenterImp: mapea antes de mostrar</text>
+  <text x="512" y="262" text-anchor="start" font-size="14" font-weight="700" fill="#22773a">DATOS · :app</text>
+  <text x="586.5" y="285" text-anchor="middle" fill="#546e7a" font-size="12.5">interceptores OkHttp</text>
+  <text x="815.0" y="560" text-anchor="middle" fill="#546e7a" font-size="12.5">MusicBrainzAPI</text>
+  <text x="815.0" y="581" text-anchor="middle" fill="#546e7a" font-size="12.5">SetListFmAPI</text>
+  <rect x="285.5" y="825" width="202.5" height="18" rx="9" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+  <text x="386.8" y="838" text-anchor="middle" fill="#1a1a1a" font-size="12.5" font-weight="700">ArtistUiModel · GigUiModel</text>
+  <rect x="198.5" y="846" width="289.5" height="18" rx="9" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+  <text x="343.2" y="859" text-anchor="middle" fill="#1a1a1a" font-size="12.5" font-weight="700">ArtistUiModelMapper · GigUiModelMapper</text>
+  <text x="500" y="998" text-anchor="middle" font-size="13" font-weight="700" fill="#37474f">ADAPTADORES DE INTERFAZ</text>
+  <text x="500" y="418" text-anchor="middle" font-size="14" font-weight="700" fill="#6b3d00">CASOS DE USO · :app</text>
+  <text x="500.0" y="440" text-anchor="middle" font-style="italic" fill="#607d8b" font-size="12">(aún no hay casos de uso)</text>
+  <text x="500" y="550" text-anchor="middle" font-size="14" font-weight="700" fill="#5a2a00">ENTIDADES · :app</text>
+  <rect x="418.8" y="558" width="162.5" height="18" rx="9" fill="#ffffff" fill-opacity="0.6" stroke="#c62828" stroke-width="2"/>
+  <text x="500.0" y="571" text-anchor="middle" fill="#546e7a" font-size="12.5">Artist · SearchArtists</text>
+  <text x="500.0" y="590" text-anchor="middle" fill="#546e7a" font-size="12.5">SetList · Venue · City…</text>
+  <text x="500.0" y="609" text-anchor="middle" font-style="italic" fill="#607d8b" font-size="12">modelos JSON con Gson</text>
+  <path d="M358.5,314.0 Q613.5,357.1 792.4,544.0" fill="none" stroke="#c62828" stroke-width="2.4" stroke-dasharray="7,4" marker-end="url(#bad)"/>
+  <circle cx="594.5" cy="393.1" r="10" fill="#c62828"/><text x="594.5" y="397.6" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">1</text>
+  <path d="M348.6,335.0 Q210.3,723.7 497.4,1020.0" fill="none" stroke="#c62828" stroke-width="2.4" stroke-dasharray="7,4" marker-end="url(#bad)"/>
+  <circle cx="316.6" cy="700.6" r="10" fill="#c62828"/><text x="316.6" y="705.1" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">2</text>
+  <path d="M500.0,579.0 Q662.8,799.5 500.0,1020.0" fill="none" stroke="#c62828" stroke-width="2.4" stroke-dasharray="7,4" marker-end="url(#bad)"/>
+  <circle cx="581.4" cy="799.5" r="10" fill="#c62828"/><text x="581.4" y="804.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">3</text>
+  <path d="M349.8,843.0 Q479.2,742.4 493.5,579.0" fill="none" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="3,3" marker-end="url(#ok)"/>
+  <rect x="430.9" y="716.7" width="39.0" height="15" rx="4" fill="#ffffff" fill-opacity="0.85"/><text x="450.4" y="728.2" text-anchor="middle" font-size="11.5" font-style="italic" fill="#2e7d32">mapea</text>
+  <text x="40" y="1102" font-size="15" font-weight="700" fill="#263238">Leyenda</text>
+  <rect x="40.0" y="1111" width="144.5" height="18" rx="9" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+  <text x="112.2" y="1124" text-anchor="middle" fill="#1a1a1a" font-size="12.5" font-weight="700">Nuevo en esta rama</text>
+  <rect x="210.5" y="1111" width="169.2" height="18" rx="9" fill="#ffffff" fill-opacity="0.75" stroke="#f9a825" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <text x="295.1" y="1124" text-anchor="middle" fill="#1a1a1a" font-size="12.5">Modificado en esta rama</text>
+  <text x="446.5" y="1124" text-anchor="middle" fill="#546e7a" font-size="12.5">Ya existía</text>
+  <line x1="513.25" y1="1120" x2="553.25" y2="1120" stroke="#c62828" stroke-width="2.4" stroke-dasharray="7,4" marker-end="url(#bad)"/><text x="563.25" y="1124" font-size="12.5" fill="#263238">Incumple la regla</text>
+  <line x1="683.25" y1="1120" x2="723.25" y2="1120" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="3,3" marker-end="url(#ok)"/><text x="733.25" y="1124" font-size="12.5" fill="#263238">Dependencia hacia dentro</text>
+  <text x="40" y="1158" font-size="15" font-weight="700" fill="#c62828">Dependencias que apuntan hacia fuera</text>
+  <circle cx="49" cy="1176" r="9" fill="#c62828"/><text x="49" y="1180" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">1</text><text x="66" y="1180" font-size="13" fill="#263238">Los presenters siguen llamando a las APIs Retrofit de la capa de datos.</text>
+  <circle cx="49" cy="1198" r="9" fill="#c62828"/><text x="49" y="1202" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">2</text><text x="66" y="1202" font-size="13" fill="#263238">Los presenters siguen construyendo Retrofit y OkHttp y leyendo BuildConfig.</text>
+  <circle cx="49" cy="1220" r="9" fill="#c62828"/><text x="49" y="1224" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">3</text><text x="66" y="1224" font-size="13" fill="#263238">Los modelos del paquete domain siguen siendo el JSON de las APIs (Gson).</text>
+  <text x="40" y="1246" font-size="13.5" font-weight="700" fill="#c62828">✘ La UI ya está desacoplada del JSON, pero la presentación sigue accediendo a la red.</text>
+  <text x="40" y="1267" font-size="13" fill="#37474f">Un único módulo Gradle (:app): las capas son solo paquetes.</text>
+</svg>
