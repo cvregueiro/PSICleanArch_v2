@@ -5,14 +5,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.Toast;
 
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import es.udc.psi.cleanarchv2.BuildConfig;
 import es.udc.psi.cleanarchv2.R;
 import es.udc.psi.cleanarchv2.app.data.MusicBrainzAPI;
 import es.udc.psi.cleanarchv2.app.domain.SearchArtists;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
 import es.udc.psi.cleanarchv2.app.presentation.main.adapter.ArtistAdapter;
 import es.udc.psi.cleanarchv2.databinding.ActivityMainBinding;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -52,7 +58,14 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     private void getArtists() {
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://musicbrainz.org/ws/2/")
+        OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
+
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor()
+                .setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
+        List<Interceptor> interceptors = okHttpClient.interceptors();
+        interceptors.add(loggingInterceptor);
+
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://musicbrainz.org/ws/2/").client(okHttpClient.build())
                 .addConverterFactory(GsonConverterFactory.create()).build();
 
         MusicBrainzAPI api = retrofit.create(MusicBrainzAPI.class);
