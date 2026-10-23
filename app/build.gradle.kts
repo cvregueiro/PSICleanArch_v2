@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson) { exclude(module = "gson") }
     implementation(libs.gson)
+    implementation(libs.okhttp.logging.interceptor)
 
     // Testing
     testImplementation(libs.junit)
