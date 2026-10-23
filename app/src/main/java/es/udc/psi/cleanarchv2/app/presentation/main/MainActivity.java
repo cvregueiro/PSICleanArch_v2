@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
+import es.udc.psi.cleanarchv2.app.domain.Artist;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
 import es.udc.psi.cleanarchv2.app.presentation.main.adapter.ArtistAdapter;
 import es.udc.psi.cleanarchv2.databinding.ActivityMainBinding;
@@ -36,16 +37,16 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         mBinding.mainList.setAdapter(adapter);
     }
 
-    private List<String> getArtists() {
+    private List<Artist> getArtists() {
 
-        List<String> artists = new ArrayList<>();
+        List<Artist> artists = new ArrayList<>();
 
-        artists.add("Ben Harper");
-        artists.add("Bon Iver");
-        artists.add("The National");
-        artists.add("Rancid");
-        artists.add("The Black Crows");
-        artists.add("The Band");
+        artists.add(new Artist(1, "Ben Harper"));
+        artists.add(new Artist(2, "Bon Iver"));
+        artists.add(new Artist(3, "The National"));
+        artists.add(new Artist(4, "Rancid"));
+        artists.add(new Artist(5, "The Black Crows"));
+        artists.add(new Artist(6, "The Band"));
 
         return artists;
     }
