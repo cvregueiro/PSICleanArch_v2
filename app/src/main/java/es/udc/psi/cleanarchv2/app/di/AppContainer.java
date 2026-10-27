@@ -5,21 +5,14 @@ import android.content.Context;
 import java.io.File;
 
 import es.udc.psi.cleanarchv2.BuildConfig;
-import es.udc.psi.cleanarchv2.app.data.local.FileArtistDataSource;
-import es.udc.psi.cleanarchv2.app.data.local.FileGigDataSource;
-import es.udc.psi.cleanarchv2.app.data.local.JsonFileStore;
-import es.udc.psi.cleanarchv2.app.data.network.AndroidNetworkChecker;
-import es.udc.psi.cleanarchv2.app.data.network.NetworkChecker;
-import es.udc.psi.cleanarchv2.app.data.remote.MusicBrainzArtistDataSource;
-import es.udc.psi.cleanarchv2.app.data.remote.SetListFmGigDataSource;
-import es.udc.psi.cleanarchv2.app.data.remote.api.ApiFactory;
-import es.udc.psi.cleanarchv2.app.data.repository.ArtistRepositoryImp;
-import es.udc.psi.cleanarchv2.app.data.repository.GigRepositoryImp;
-import es.udc.psi.cleanarchv2.app.domain.repository.ArtistRepository;
-import es.udc.psi.cleanarchv2.app.domain.repository.GigRepository;
-import es.udc.psi.cleanarchv2.app.domain.usecase.GetArtistGigsUseCase;
-import es.udc.psi.cleanarchv2.app.domain.usecase.SearchArtistsUseCase;
+import es.udc.psi.cleanarchv2.app.network.AndroidNetworkChecker;
 import es.udc.psi.cleanarchv2.app.presentation.presenter.TaskRunner;
+import es.udc.psi.cleanarchv2.data.RepositoryFactory;
+import es.udc.psi.cleanarchv2.data.network.NetworkChecker;
+import es.udc.psi.cleanarchv2.domain.repository.ArtistRepository;
+import es.udc.psi.cleanarchv2.domain.repository.GigRepository;
+import es.udc.psi.cleanarchv2.domain.usecase.GetArtistGigsUseCase;
+import es.udc.psi.cleanarchv2.domain.usecase.SearchArtistsUseCase;
 
 /**
  * Composition root: the only place of the app that knows the implementations
@@ -39,18 +32,12 @@ public class AppContainer {
     public AppContainer(Context context) {
 
         NetworkChecker networkChecker = new AndroidNetworkChecker(context);
-        JsonFileStore store = new JsonFileStore(new File(context.getFilesDir(), OFFLINE_DIRECTORY));
+        File offlineDirectory = new File(context.getFilesDir(), OFFLINE_DIRECTORY);
 
-        mArtistRepository = new ArtistRepositoryImp(
-                new MusicBrainzArtistDataSource(ApiFactory.createMusicBrainzApi(USER_AGENT, BuildConfig.DEBUG)),
-                new FileArtistDataSource(store),
-                networkChecker);
-
-        String apiKey = BuildConfig.SETLISTFM_API_KEY;
-        mGigRepository = new GigRepositoryImp(
-                new SetListFmGigDataSource(ApiFactory.createSetListFmApi(apiKey, BuildConfig.DEBUG), apiKey),
-                new FileGigDataSource(store),
-                networkChecker);
+        mArtistRepository = RepositoryFactory.createArtistRepository(
+                USER_AGENT, BuildConfig.DEBUG, offlineDirectory, networkChecker);
+        mGigRepository = RepositoryFactory.createGigRepository(
+                BuildConfig.SETLISTFM_API_KEY, BuildConfig.DEBUG, offlineDirectory, networkChecker);
     }
 
     public SearchArtistsUseCase searchArtistsUseCase() {

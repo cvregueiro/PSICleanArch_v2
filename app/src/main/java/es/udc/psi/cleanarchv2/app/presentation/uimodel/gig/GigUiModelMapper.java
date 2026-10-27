@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.model.Gig;
+import es.udc.psi.cleanarchv2.domain.model.Gig;
 
 public class GigUiModelMapper {
 

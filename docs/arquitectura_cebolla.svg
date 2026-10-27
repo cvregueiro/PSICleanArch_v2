@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1110" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <title>PSiCleanArch: arquitectura en cebolla (feature/16_modules)</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b3261e"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="1110" fill="#ffffff"/>
+
+  <!-- Frameworks and drivers -->
+  <circle cx="500" cy="500" r="480" fill="#eceff1" stroke="#90a4ae" stroke-width="2"/>
+  <!-- Interface adapters: presentation (:app) on the left, data (:data) on the right -->
+  <path d="M500,140 A360,360 0 0 0 500,860 L500,730 A230,230 0 0 1 500,270 Z" fill="#dbe8ff" stroke="#5b8def" stroke-width="2"/>
+  <path d="M500,140 A360,360 0 0 1 500,860 L500,730 A230,230 0 0 0 500,270 Z" fill="#dcf3e2" stroke="#3fa35b" stroke-width="2"/>
+  <!-- Use cases (:domain) -->
+  <circle cx="500" cy="500" r="230" fill="#ffe7c2" stroke="#e39b26" stroke-width="2"/>
+  <!-- Entities (:domain) -->
+  <circle cx="500" cy="500" r="110" fill="#ffc98a" stroke="#d27a10" stroke-width="2"/>
+
+  <!-- Frameworks texts -->
+  <g text-anchor="middle" fill="#37474f">
+    <text x="500" y="52" font-size="17" font-weight="700">FRAMEWORKS Y DRIVERS</text>
+    <text x="500" y="78" font-size="13">Android SDK · Activities · RecyclerView adapters · layouts (ViewBinding)</text>
+    <text x="500" y="98" font-size="13">BaseActivity · AndroidManifest · BuildConfig · ConnectivityManager (:app)</text>
+    <text x="500" y="122" font-size="12" font-style="italic">detalles: se pueden cambiar sin tocar el dominio</text>
+    <text x="500" y="895" font-size="13">Retrofit · OkHttp · Gson (:data)</text>
+    <text x="500" y="917" font-size="13">API REST de MusicBrainz · API REST de setlist.fm · ficheros JSON del dispositivo</text>
+    <text x="500" y="940" font-size="12" font-style="italic">local.properties (API key, fuera del repositorio)</text>
+  </g>
+
+  <!-- Interface adapters texts -->
+  <line x1="500" y1="140" x2="500" y2="270" stroke="#78909c" stroke-dasharray="5,4"/>
+  <line x1="500" y1="730" x2="500" y2="815" stroke="#78909c" stroke-dasharray="5,4"/>
+  <g text-anchor="middle">
+    <text x="395" y="172" font-size="14" font-weight="700" fill="#1f4fbf">PRESENTACIÓN · :app</text>
+    <text x="395" y="196" font-size="12.5" fill="#1d2b4f">ArtistsPresenterImp</text>
+    <text x="395" y="214" font-size="12.5" fill="#1d2b4f">GigsPresenterImp</text>
+    <text x="400" y="232" font-size="12.5" fill="#1d2b4f">ArtistsView · GigsView</text>
+    <text x="410" y="250" font-size="12.5" fill="#1d2b4f">UiModels + mappers</text>
+
+    <text x="605" y="172" font-size="14" font-weight="700" fill="#22773a">DATOS · :data</text>
+    <text x="605" y="196" font-size="12.5" fill="#1d3b26">ArtistRepositoryImp</text>
+    <text x="605" y="214" font-size="12.5" fill="#1d3b26">GigRepositoryImp</text>
+    <text x="600" y="232" font-size="12.5" fill="#1d3b26">remote: *RemoteDataSource</text>
+    <text x="595" y="250" font-size="12.5" fill="#1d3b26">local: File*DataSource</text>
+    <text x="590" y="268" font-size="12.5" fill="#1d3b26">RepositoryFactory</text>
+
+    <text x="410" y="750" font-size="12.5" fill="#1d2b4f">GlobalApplication</text>
+    <text x="408" y="768" font-size="12.5" fill="#1d2b4f">AppContainer (composition root)</text>
+    <text x="400" y="786" font-size="12.5" fill="#1d2b4f">TaskRunner · AndroidNetworkChecker</text>
+    <text x="395" y="806" font-size="12" font-style="italic" fill="#1f4fbf">entidad → UiModel</text>
+
+    <text x="600" y="750" font-size="12.5" fill="#1d3b26">DTOs + DtoMappers · JsonFileStore</text>
+    <text x="605" y="768" font-size="12.5" fill="#1d3b26">ApiFactory · interceptores</text>
+    <text x="605" y="786" font-size="12.5" fill="#1d3b26">NetworkChecker (interfaz)</text>
+    <text x="605" y="806" font-size="12" font-style="italic" fill="#22773a">JSON → DTO → entidad</text>
+    <text x="500" y="840" font-size="15" font-weight="700" fill="#37474f">ADAPTADORES DE INTERFAZ</text>
+  </g>
+
+  <!-- Use cases texts -->
+  <g text-anchor="middle" fill="#6b3d00">
+    <text x="500" y="298" font-size="15" font-weight="700">CASOS DE USO · :domain</text>
+    <text x="500" y="322" font-size="13">SearchArtistsUseCase</text>
+    <text x="500" y="342" font-size="13">GetArtistGigsUseCase</text>
+    <text x="500" y="652" font-size="13" font-weight="700">Puertos (interfaces)</text>
+    <text x="500" y="672" font-size="13">ArtistRepository · GigRepository</text>
+  </g>
+
+  <!-- Entities texts -->
+  <g text-anchor="middle" fill="#5a2a00">
+    <text x="500" y="470" font-size="15" font-weight="700">ENTIDADES</text>
+    <text x="500" y="492" font-size="12" font-weight="700">:domain</text>
+    <text x="500" y="515" font-size="13">Artist · Gig</text>
+    <text x="500" y="535" font-size="12">DataUnavailableException</text>
+    <text x="500" y="552" font-size="12">ConfigurationException</text>
+  </g>
+
+  <!-- Dependency rule arrows -->
+  <line x1="28" y1="500" x2="384" y2="500" stroke="#b3261e" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="972" y1="500" x2="616" y2="500" stroke="#b3261e" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="205" y="490" text-anchor="middle" font-size="12" font-weight="700" fill="#b3261e">dependencias →</text>
+  <text x="795" y="490" text-anchor="middle" font-size="12" font-weight="700" fill="#b3261e">← dependencias</text>
+
+  <!-- Legend -->
+  <g font-size="13" fill="#263238">
+    <text x="40" y="1000" font-size="15" font-weight="700">Módulos Gradle</text>
+    <rect x="40" y="1015" width="18" height="18" fill="#ffc98a" stroke="#d27a10"/>
+    <text x="66" y="1029">:domain — librería Java pura: entidades, excepciones, puertos y casos de uso</text>
+    <rect x="40" y="1043" width="18" height="18" fill="#dcf3e2" stroke="#3fa35b"/>
+    <text x="66" y="1057">:data — librería Java: repositorios, fuentes remota y local, DTOs y Retrofit (depende de :domain)</text>
+    <rect x="40" y="1071" width="18" height="18" fill="#dbe8ff" stroke="#5b8def"/>
+    <text x="66" y="1085">:app — Android: presentación MVP, AndroidNetworkChecker, GlobalApplication y AppContainer (usa :data solo para construirlo)</text>
+  </g>
+</svg>

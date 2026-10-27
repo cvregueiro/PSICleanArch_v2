@@ -4,11 +4,11 @@ import android.util.Log;
 
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.model.Artist;
-import es.udc.psi.cleanarchv2.app.domain.usecase.SearchArtistsUseCase;
 import es.udc.psi.cleanarchv2.app.presentation.presenter.TaskRunner;
 import es.udc.psi.cleanarchv2.app.presentation.uimodel.artist.ArtistUiModel;
 import es.udc.psi.cleanarchv2.app.presentation.uimodel.artist.ArtistUiModelMapper;
+import es.udc.psi.cleanarchv2.domain.model.Artist;
+import es.udc.psi.cleanarchv2.domain.usecase.SearchArtistsUseCase;
 
 public class ArtistsPresenterImp implements ArtistsPresenter {
 

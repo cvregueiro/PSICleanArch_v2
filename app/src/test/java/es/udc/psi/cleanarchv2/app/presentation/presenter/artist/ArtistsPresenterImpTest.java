@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.exception.DataUnavailableException;
-import es.udc.psi.cleanarchv2.app.domain.model.Artist;
-import es.udc.psi.cleanarchv2.app.domain.repository.ArtistRepository;
-import es.udc.psi.cleanarchv2.app.domain.usecase.SearchArtistsUseCase;
 import es.udc.psi.cleanarchv2.app.presentation.presenter.TaskRunner;
 import es.udc.psi.cleanarchv2.app.presentation.uimodel.artist.ArtistUiModel;
+import es.udc.psi.cleanarchv2.domain.exception.DataUnavailableException;
+import es.udc.psi.cleanarchv2.domain.model.Artist;
+import es.udc.psi.cleanarchv2.domain.repository.ArtistRepository;
+import es.udc.psi.cleanarchv2.domain.usecase.SearchArtistsUseCase;
 
 import static org.junit.Assert.assertEquals;
 
