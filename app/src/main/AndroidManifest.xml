@@ -8,13 +8,14 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".app.GlobalApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PSiCleanArch"
         tools:targetApi="31">
 
         <activity
-            android:name=".app.presentation.artist.ArtistsActivity"
+            android:name=".app.presentation.ui.artist.ArtistsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +25,9 @@
         </activity>
 
         <activity
-            android:name=".app.presentation.gig.GigsActivity"
+            android:name=".app.presentation.ui.gig.GigsActivity"
             android:exported="false"
-            android:parentActivityName=".app.presentation.artist.ArtistsActivity" />
+            android:parentActivityName=".app.presentation.ui.artist.ArtistsActivity" />
 
     </application>
 

@@ -47,6 +47,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    testOptions {
+        // android.util.Log returns default values in local unit tests
+        unitTests.isReturnDefaultValues = true
+    }
     buildFeatures {
         viewBinding = true
         buildConfig = true
