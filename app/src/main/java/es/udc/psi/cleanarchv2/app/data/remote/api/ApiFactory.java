@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.data.api;
+package es.udc.psi.cleanarchv2.app.data.remote.api;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;

@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.data.api.dto;
+package es.udc.psi.cleanarchv2.app.data.remote.dto;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

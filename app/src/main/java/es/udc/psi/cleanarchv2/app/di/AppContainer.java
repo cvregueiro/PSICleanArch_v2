@@ -1,7 +1,9 @@
 package es.udc.psi.cleanarchv2.app.di;
 
 import es.udc.psi.cleanarchv2.BuildConfig;
-import es.udc.psi.cleanarchv2.app.data.api.ApiFactory;
+import es.udc.psi.cleanarchv2.app.data.remote.MusicBrainzArtistDataSource;
+import es.udc.psi.cleanarchv2.app.data.remote.SetListFmGigDataSource;
+import es.udc.psi.cleanarchv2.app.data.remote.api.ApiFactory;
 import es.udc.psi.cleanarchv2.app.data.repository.ArtistRepositoryImp;
 import es.udc.psi.cleanarchv2.app.data.repository.GigRepositoryImp;
 import es.udc.psi.cleanarchv2.app.domain.repository.ArtistRepository;
@@ -24,10 +26,12 @@ public class AppContainer {
 
     public AppContainer() {
 
-        mArtistRepository = new ArtistRepositoryImp(ApiFactory.createMusicBrainzApi(USER_AGENT, BuildConfig.DEBUG));
+        mArtistRepository = new ArtistRepositoryImp(
+                new MusicBrainzArtistDataSource(ApiFactory.createMusicBrainzApi(USER_AGENT, BuildConfig.DEBUG)));
 
         String apiKey = BuildConfig.SETLISTFM_API_KEY;
-        mGigRepository = new GigRepositoryImp(ApiFactory.createSetListFmApi(apiKey, BuildConfig.DEBUG), apiKey);
+        mGigRepository = new GigRepositoryImp(
+                new SetListFmGigDataSource(ApiFactory.createSetListFmApi(apiKey, BuildConfig.DEBUG), apiKey));
     }
 
     public SearchArtistsUseCase searchArtistsUseCase() {
