@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.List;
 
 import es.udc.psi.cleanarchv2.app.domain.model.Artist;
-import es.udc.psi.cleanarchv2.app.domain.artist.service.ArtistService;
+import es.udc.psi.cleanarchv2.app.domain.usecase.SearchArtistsUseCase;
 import es.udc.psi.cleanarchv2.app.executor.TaskRunner;
 import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModel;
 import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModelMapper;
@@ -16,15 +16,15 @@ public class ArtistsPresenterImp implements ArtistsPresenter {
 
     private ArtistsView mView;
 
-    private final ArtistService mArtistService;
+    private final SearchArtistsUseCase mSearchArtistsUseCase;
     private final TaskRunner mTaskRunner;
 
     public ArtistsPresenterImp(ArtistsView view,
-                               ArtistService artistService,
+                               SearchArtistsUseCase searchArtistsUseCase,
                                TaskRunner taskRunner) {
 
         mView = view;
-        mArtistService = artistService;
+        mSearchArtistsUseCase = searchArtistsUseCase;
         mTaskRunner = taskRunner;
     }
 
@@ -64,7 +64,7 @@ public class ArtistsPresenterImp implements ArtistsPresenter {
 
     private void getArtists(String textToSearch) {
 
-        mTaskRunner.execute(() -> mArtistService.searchArtists(textToSearch), new TaskRunner.Callback<List<Artist>>() {
+        mTaskRunner.execute(() -> mSearchArtistsUseCase.execute(textToSearch), new TaskRunner.Callback<List<Artist>>() {
 
             @Override
             public void onSuccess(List<Artist> artists) {

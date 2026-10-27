@@ -41,7 +41,7 @@ public class ArtistsActivity extends BaseActivity<ActivityMainBinding>
         setUpView();
 
         AppContainer container = ((GlobalApplication) getApplication()).getContainer();
-        mPresenter = new ArtistsPresenterImp(this, container.artistService(), container.taskRunner());
+        mPresenter = new ArtistsPresenterImp(this, container.searchArtistsUseCase(), container.taskRunner());
         mPresenter.initFlow();
     }
 
