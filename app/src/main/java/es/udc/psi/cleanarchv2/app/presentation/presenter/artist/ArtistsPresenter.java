@@ -1,6 +1,6 @@
-package es.udc.psi.cleanarchv2.app.presentation.artist.presenter;
+package es.udc.psi.cleanarchv2.app.presentation.presenter.artist;
 
-import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModel;
+import es.udc.psi.cleanarchv2.app.presentation.uimodel.artist.ArtistUiModel;
 
 public interface ArtistsPresenter {
 

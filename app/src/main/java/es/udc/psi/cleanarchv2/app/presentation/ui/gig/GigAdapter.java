@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.presentation.gig.adapter;
+package es.udc.psi.cleanarchv2.app.presentation.ui.gig;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
-import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModel;
+import es.udc.psi.cleanarchv2.app.presentation.uimodel.gig.GigUiModel;
 import es.udc.psi.cleanarchv2.databinding.RowGigBinding;
 
 public class GigAdapter extends Adapter<GigAdapter.GigHolder> {

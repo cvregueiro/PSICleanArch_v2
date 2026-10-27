@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.presentation.artist.adapter;
+package es.udc.psi.cleanarchv2.app.presentation.ui.artist;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -9,7 +9,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
-import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModel;
+import es.udc.psi.cleanarchv2.app.presentation.uimodel.artist.ArtistUiModel;
 import es.udc.psi.cleanarchv2.databinding.RowArtistBinding;
 
 public class ArtistAdapter extends Adapter<ArtistAdapter.ArtistHolder> {

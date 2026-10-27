@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.presentation.gig.presenter;
+package es.udc.psi.cleanarchv2.app.presentation.presenter.gig;
 
 public interface GigsPresenter {
 

@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.presentation.artist;
+package es.udc.psi.cleanarchv2.app.presentation.ui.artist;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,13 +15,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import es.udc.psi.cleanarchv2.R;
 import es.udc.psi.cleanarchv2.app.GlobalApplication;
 import es.udc.psi.cleanarchv2.app.di.AppContainer;
-import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
-import es.udc.psi.cleanarchv2.app.presentation.artist.adapter.ArtistAdapter;
-import es.udc.psi.cleanarchv2.app.presentation.artist.presenter.ArtistsPresenter;
-import es.udc.psi.cleanarchv2.app.presentation.artist.presenter.ArtistsPresenterImp;
-import es.udc.psi.cleanarchv2.app.presentation.artist.presenter.ArtistsView;
-import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModel;
-import es.udc.psi.cleanarchv2.app.presentation.gig.GigsActivity;
+import es.udc.psi.cleanarchv2.app.presentation.presenter.artist.ArtistsPresenter;
+import es.udc.psi.cleanarchv2.app.presentation.presenter.artist.ArtistsPresenterImp;
+import es.udc.psi.cleanarchv2.app.presentation.presenter.artist.ArtistsView;
+import es.udc.psi.cleanarchv2.app.presentation.ui.BaseActivity;
+import es.udc.psi.cleanarchv2.app.presentation.ui.gig.GigsActivity;
+import es.udc.psi.cleanarchv2.app.presentation.uimodel.artist.ArtistUiModel;
 import es.udc.psi.cleanarchv2.databinding.ActivityMainBinding;
 
 public class ArtistsActivity extends BaseActivity<ActivityMainBinding>

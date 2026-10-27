@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.presentation.artist.model;
+package es.udc.psi.cleanarchv2.app.presentation.uimodel.artist;
 
 import java.util.ArrayList;
 import java.util.List;

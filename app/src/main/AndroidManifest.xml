@@ -15,7 +15,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".app.presentation.artist.ArtistsActivity"
+            android:name=".app.presentation.ui.artist.ArtistsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,9 +25,9 @@
         </activity>
 
         <activity
-            android:name=".app.presentation.gig.GigsActivity"
+            android:name=".app.presentation.ui.gig.GigsActivity"
             android:exported="false"
-            android:parentActivityName=".app.presentation.artist.ArtistsActivity" />
+            android:parentActivityName=".app.presentation.ui.artist.ArtistsActivity" />
 
     </application>
 

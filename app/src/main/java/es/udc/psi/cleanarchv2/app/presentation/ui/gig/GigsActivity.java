@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.presentation.gig;
+package es.udc.psi.cleanarchv2.app.presentation.ui.gig;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,12 +16,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import es.udc.psi.cleanarchv2.R;
 import es.udc.psi.cleanarchv2.app.GlobalApplication;
 import es.udc.psi.cleanarchv2.app.di.AppContainer;
-import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
-import es.udc.psi.cleanarchv2.app.presentation.gig.adapter.GigAdapter;
-import es.udc.psi.cleanarchv2.app.presentation.gig.presenter.GigsPresenter;
-import es.udc.psi.cleanarchv2.app.presentation.gig.presenter.GigsPresenterImp;
-import es.udc.psi.cleanarchv2.app.presentation.gig.presenter.GigsView;
-import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModel;
+import es.udc.psi.cleanarchv2.app.presentation.presenter.gig.GigsPresenter;
+import es.udc.psi.cleanarchv2.app.presentation.presenter.gig.GigsPresenterImp;
+import es.udc.psi.cleanarchv2.app.presentation.presenter.gig.GigsView;
+import es.udc.psi.cleanarchv2.app.presentation.ui.BaseActivity;
+import es.udc.psi.cleanarchv2.app.presentation.uimodel.gig.GigUiModel;
 import es.udc.psi.cleanarchv2.databinding.ActivityGigsBinding;
 
 public class GigsActivity extends BaseActivity<ActivityGigsBinding> implements GigsView {

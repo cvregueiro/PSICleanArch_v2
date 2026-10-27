@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorSurfaceContainer"
-    tools:context=".app.presentation.artist.ArtistsActivity">
+    tools:context=".app.presentation.ui.artist.ArtistsActivity">
 
     <include
         android:id="@+id/toolbar"

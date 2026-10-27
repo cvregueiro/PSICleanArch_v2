@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.presentation.gig.model;
+package es.udc.psi.cleanarchv2.app.presentation.uimodel.gig;
 
 import java.text.DateFormat;
 import java.util.ArrayList;

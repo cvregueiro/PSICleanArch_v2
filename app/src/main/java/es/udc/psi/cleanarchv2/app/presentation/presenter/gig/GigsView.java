@@ -1,8 +1,8 @@
-package es.udc.psi.cleanarchv2.app.presentation.gig.presenter;
+package es.udc.psi.cleanarchv2.app.presentation.presenter.gig;
 
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModel;
+import es.udc.psi.cleanarchv2.app.presentation.uimodel.gig.GigUiModel;
 
 public interface GigsView {
 

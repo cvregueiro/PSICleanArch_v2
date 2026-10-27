@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.presentation.artist.model;
+package es.udc.psi.cleanarchv2.app.presentation.uimodel.artist;
 
 public class ArtistUiModel {
 

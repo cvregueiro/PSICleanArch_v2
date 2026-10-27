@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.presentation;
+package es.udc.psi.cleanarchv2.app.presentation.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

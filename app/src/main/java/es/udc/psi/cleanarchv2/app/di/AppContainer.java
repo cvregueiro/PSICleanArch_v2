@@ -8,7 +8,7 @@ import es.udc.psi.cleanarchv2.app.domain.repository.ArtistRepository;
 import es.udc.psi.cleanarchv2.app.domain.repository.GigRepository;
 import es.udc.psi.cleanarchv2.app.domain.usecase.GetArtistGigsUseCase;
 import es.udc.psi.cleanarchv2.app.domain.usecase.SearchArtistsUseCase;
-import es.udc.psi.cleanarchv2.app.executor.TaskRunner;
+import es.udc.psi.cleanarchv2.app.presentation.presenter.TaskRunner;
 
 /**
  * Composition root: the only place of the app that knows the implementations
