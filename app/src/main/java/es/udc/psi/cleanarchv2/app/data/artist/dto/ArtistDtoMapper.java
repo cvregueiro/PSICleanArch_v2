@@ -3,7 +3,7 @@ package es.udc.psi.cleanarchv2.app.data.artist.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.artist.Artist;
+import es.udc.psi.cleanarchv2.app.domain.model.Artist;
 
 public class ArtistDtoMapper {
 

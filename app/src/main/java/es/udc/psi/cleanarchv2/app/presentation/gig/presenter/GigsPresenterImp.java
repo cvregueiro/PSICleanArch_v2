@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.List;
 
 import es.udc.psi.cleanarchv2.app.domain.exception.ConfigurationException;
-import es.udc.psi.cleanarchv2.app.domain.gig.Gig;
+import es.udc.psi.cleanarchv2.app.domain.model.Gig;
 import es.udc.psi.cleanarchv2.app.domain.gig.service.GigService;
 import es.udc.psi.cleanarchv2.app.executor.TaskRunner;
 import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModel;

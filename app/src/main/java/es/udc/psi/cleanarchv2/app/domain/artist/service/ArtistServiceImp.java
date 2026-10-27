@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.artist.Artist;
+import es.udc.psi.cleanarchv2.app.domain.model.Artist;
 import es.udc.psi.cleanarchv2.app.domain.artist.datasource.ArtistDatasource;
 
 public class ArtistServiceImp implements ArtistService {

@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.domain.artist;
+package es.udc.psi.cleanarchv2.app.domain.model;
 
 public class Artist {
 

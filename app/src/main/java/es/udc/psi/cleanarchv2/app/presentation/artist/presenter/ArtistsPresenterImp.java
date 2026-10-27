@@ -4,7 +4,7 @@ import android.util.Log;
 
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.artist.Artist;
+import es.udc.psi.cleanarchv2.app.domain.model.Artist;
 import es.udc.psi.cleanarchv2.app.domain.artist.service.ArtistService;
 import es.udc.psi.cleanarchv2.app.executor.TaskRunner;
 import es.udc.psi.cleanarchv2.app.presentation.artist.model.ArtistUiModel;

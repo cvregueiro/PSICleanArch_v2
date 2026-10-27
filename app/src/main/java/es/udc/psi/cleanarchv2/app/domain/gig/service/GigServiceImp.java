@@ -11,7 +11,7 @@ import es.udc.psi.cleanarchv2.app.data.gig.dto.GigDtoMapper;
 import es.udc.psi.cleanarchv2.app.data.gig.dto.SetListsDto;
 import es.udc.psi.cleanarchv2.app.data.interceptor.SetListFmApiInterceptor;
 import es.udc.psi.cleanarchv2.app.domain.exception.ConfigurationException;
-import es.udc.psi.cleanarchv2.app.domain.gig.Gig;
+import es.udc.psi.cleanarchv2.app.domain.model.Gig;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

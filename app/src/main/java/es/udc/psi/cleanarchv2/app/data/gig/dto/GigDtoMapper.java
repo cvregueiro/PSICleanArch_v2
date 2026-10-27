@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import es.udc.psi.cleanarchv2.app.domain.gig.Gig;
+import es.udc.psi.cleanarchv2.app.domain.model.Gig;
 
 public class GigDtoMapper {
 

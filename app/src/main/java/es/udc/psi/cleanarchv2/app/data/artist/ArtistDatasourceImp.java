@@ -8,7 +8,7 @@ import es.udc.psi.cleanarchv2.app.data.MusicBrainzAPI;
 import es.udc.psi.cleanarchv2.app.data.artist.dto.ArtistDtoMapper;
 import es.udc.psi.cleanarchv2.app.data.artist.dto.SearchArtistsDto;
 import es.udc.psi.cleanarchv2.app.data.interceptor.MusicBrainzApiInterceptor;
-import es.udc.psi.cleanarchv2.app.domain.artist.Artist;
+import es.udc.psi.cleanarchv2.app.domain.model.Artist;
 import es.udc.psi.cleanarchv2.app.domain.artist.datasource.ArtistDatasource;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;

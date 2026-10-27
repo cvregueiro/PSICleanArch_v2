@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.domain.gig;
+package es.udc.psi.cleanarchv2.app.domain.model;
 
 import java.util.Date;
 
