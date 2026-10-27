@@ -4,12 +4,12 @@ import android.util.Log;
 
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.exception.ConfigurationException;
-import es.udc.psi.cleanarchv2.app.domain.model.Gig;
-import es.udc.psi.cleanarchv2.app.domain.usecase.GetArtistGigsUseCase;
 import es.udc.psi.cleanarchv2.app.presentation.presenter.TaskRunner;
 import es.udc.psi.cleanarchv2.app.presentation.uimodel.gig.GigUiModel;
 import es.udc.psi.cleanarchv2.app.presentation.uimodel.gig.GigUiModelMapper;
+import es.udc.psi.cleanarchv2.domain.exception.ConfigurationException;
+import es.udc.psi.cleanarchv2.domain.model.Gig;
+import es.udc.psi.cleanarchv2.domain.usecase.GetArtistGigsUseCase;
 
 public class GigsPresenterImp implements GigsPresenter {
 

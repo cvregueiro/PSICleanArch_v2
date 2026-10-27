@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.model.Gig;
+import es.udc.psi.cleanarchv2.domain.model.Gig;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;

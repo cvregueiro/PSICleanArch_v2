@@ -3,7 +3,7 @@ package es.udc.psi.cleanarchv2.app.presentation.uimodel.artist;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.model.Artist;
+import es.udc.psi.cleanarchv2.domain.model.Artist;
 
 public class ArtistUiModelMapper {
 

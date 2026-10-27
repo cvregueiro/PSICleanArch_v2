@@ -1,9 +1,9 @@
-package es.udc.psi.cleanarchv2.app.domain.repository;
+package es.udc.psi.cleanarchv2.domain.repository;
 
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.exception.DataUnavailableException;
-import es.udc.psi.cleanarchv2.app.domain.model.Artist;
+import es.udc.psi.cleanarchv2.domain.exception.DataUnavailableException;
+import es.udc.psi.cleanarchv2.domain.model.Artist;
 
 /**
  * Port of the domain: what the use cases need to know about artists.

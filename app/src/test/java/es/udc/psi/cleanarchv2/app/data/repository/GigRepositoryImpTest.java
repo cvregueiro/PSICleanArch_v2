@@ -13,8 +13,8 @@ import java.util.Map;
 import es.udc.psi.cleanarchv2.app.data.local.GigLocalDataSource;
 import es.udc.psi.cleanarchv2.app.data.remote.MissingApiKeyException;
 import es.udc.psi.cleanarchv2.app.data.remote.dto.SetListDto;
-import es.udc.psi.cleanarchv2.app.domain.exception.ConfigurationException;
-import es.udc.psi.cleanarchv2.app.domain.exception.DataUnavailableException;
+import es.udc.psi.cleanarchv2.domain.exception.ConfigurationException;
+import es.udc.psi.cleanarchv2.domain.exception.DataUnavailableException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

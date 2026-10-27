@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "PSiCleanArch"
 include(":app")
+include(":domain")

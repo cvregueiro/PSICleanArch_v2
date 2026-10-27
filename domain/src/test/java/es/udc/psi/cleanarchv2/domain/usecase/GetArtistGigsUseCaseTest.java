@@ -1,12 +1,12 @@
-package es.udc.psi.cleanarchv2.app.domain.usecase;
+package es.udc.psi.cleanarchv2.domain.usecase;
 
 import org.junit.Test;
 
 import java.util.Collections;
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.exception.DataUnavailableException;
-import es.udc.psi.cleanarchv2.app.domain.model.Gig;
+import es.udc.psi.cleanarchv2.domain.exception.DataUnavailableException;
+import es.udc.psi.cleanarchv2.domain.model.Gig;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

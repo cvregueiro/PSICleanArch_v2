@@ -13,7 +13,7 @@ import es.udc.psi.cleanarchv2.app.data.remote.dto.GigDtoMapper;
 import es.udc.psi.cleanarchv2.app.data.remote.dto.SetListDto;
 import es.udc.psi.cleanarchv2.app.data.remote.dto.TourDto;
 import es.udc.psi.cleanarchv2.app.data.remote.dto.VenueDto;
-import es.udc.psi.cleanarchv2.app.domain.model.Gig;
+import es.udc.psi.cleanarchv2.domain.model.Gig;
 
 import static org.junit.Assert.assertEquals;
 

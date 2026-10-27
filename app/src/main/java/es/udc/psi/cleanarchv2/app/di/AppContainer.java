@@ -15,11 +15,11 @@ import es.udc.psi.cleanarchv2.app.data.remote.SetListFmGigDataSource;
 import es.udc.psi.cleanarchv2.app.data.remote.api.ApiFactory;
 import es.udc.psi.cleanarchv2.app.data.repository.ArtistRepositoryImp;
 import es.udc.psi.cleanarchv2.app.data.repository.GigRepositoryImp;
-import es.udc.psi.cleanarchv2.app.domain.repository.ArtistRepository;
-import es.udc.psi.cleanarchv2.app.domain.repository.GigRepository;
-import es.udc.psi.cleanarchv2.app.domain.usecase.GetArtistGigsUseCase;
-import es.udc.psi.cleanarchv2.app.domain.usecase.SearchArtistsUseCase;
 import es.udc.psi.cleanarchv2.app.presentation.presenter.TaskRunner;
+import es.udc.psi.cleanarchv2.domain.repository.ArtistRepository;
+import es.udc.psi.cleanarchv2.domain.repository.GigRepository;
+import es.udc.psi.cleanarchv2.domain.usecase.GetArtistGigsUseCase;
+import es.udc.psi.cleanarchv2.domain.usecase.SearchArtistsUseCase;
 
 /**
  * Composition root: the only place of the app that knows the implementations

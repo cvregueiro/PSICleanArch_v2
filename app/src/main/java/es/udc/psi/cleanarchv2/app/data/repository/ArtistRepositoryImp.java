@@ -8,9 +8,9 @@ import es.udc.psi.cleanarchv2.app.data.network.NetworkChecker;
 import es.udc.psi.cleanarchv2.app.data.remote.ArtistRemoteDataSource;
 import es.udc.psi.cleanarchv2.app.data.remote.dto.ArtistDto;
 import es.udc.psi.cleanarchv2.app.data.remote.dto.ArtistDtoMapper;
-import es.udc.psi.cleanarchv2.app.domain.exception.DataUnavailableException;
-import es.udc.psi.cleanarchv2.app.domain.model.Artist;
-import es.udc.psi.cleanarchv2.app.domain.repository.ArtistRepository;
+import es.udc.psi.cleanarchv2.domain.exception.DataUnavailableException;
+import es.udc.psi.cleanarchv2.domain.model.Artist;
+import es.udc.psi.cleanarchv2.domain.repository.ArtistRepository;
 
 /**
  * Adapter of the ArtistRepository port. It decides where the artists come from:

@@ -9,10 +9,10 @@ import es.udc.psi.cleanarchv2.app.data.remote.GigRemoteDataSource;
 import es.udc.psi.cleanarchv2.app.data.remote.MissingApiKeyException;
 import es.udc.psi.cleanarchv2.app.data.remote.dto.GigDtoMapper;
 import es.udc.psi.cleanarchv2.app.data.remote.dto.SetListDto;
-import es.udc.psi.cleanarchv2.app.domain.exception.ConfigurationException;
-import es.udc.psi.cleanarchv2.app.domain.exception.DataUnavailableException;
-import es.udc.psi.cleanarchv2.app.domain.model.Gig;
-import es.udc.psi.cleanarchv2.app.domain.repository.GigRepository;
+import es.udc.psi.cleanarchv2.domain.exception.ConfigurationException;
+import es.udc.psi.cleanarchv2.domain.exception.DataUnavailableException;
+import es.udc.psi.cleanarchv2.domain.model.Gig;
+import es.udc.psi.cleanarchv2.domain.repository.GigRepository;
 
 /**
  * Adapter of the GigRepository port. With network it gets the setlists from setlist.fm

@@ -12,8 +12,8 @@ import java.util.Map;
 import es.udc.psi.cleanarchv2.app.data.local.ArtistLocalDataSource;
 import es.udc.psi.cleanarchv2.app.data.remote.ArtistRemoteDataSource;
 import es.udc.psi.cleanarchv2.app.data.remote.dto.ArtistDto;
-import es.udc.psi.cleanarchv2.app.domain.exception.DataUnavailableException;
-import es.udc.psi.cleanarchv2.app.domain.model.Artist;
+import es.udc.psi.cleanarchv2.domain.exception.DataUnavailableException;
+import es.udc.psi.cleanarchv2.domain.model.Artist;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

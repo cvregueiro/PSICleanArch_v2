@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.domain.exception;
+package es.udc.psi.cleanarchv2.domain.exception;
 
 /**
  * The data cannot be obtained because the application is not configured to access it.

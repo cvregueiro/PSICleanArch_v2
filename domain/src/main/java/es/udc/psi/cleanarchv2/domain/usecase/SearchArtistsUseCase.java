@@ -1,11 +1,11 @@
-package es.udc.psi.cleanarchv2.app.domain.usecase;
+package es.udc.psi.cleanarchv2.domain.usecase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.exception.DataUnavailableException;
-import es.udc.psi.cleanarchv2.app.domain.model.Artist;
-import es.udc.psi.cleanarchv2.app.domain.repository.ArtistRepository;
+import es.udc.psi.cleanarchv2.domain.exception.DataUnavailableException;
+import es.udc.psi.cleanarchv2.domain.model.Artist;
+import es.udc.psi.cleanarchv2.domain.repository.ArtistRepository;
 
 /**
  * Use case: search the artists whose name matches a text.

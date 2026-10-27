@@ -71,6 +71,9 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.okhttp.logging.interceptor)
 
+    // Clean Architecture layers
+    implementation(project(":domain"))
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

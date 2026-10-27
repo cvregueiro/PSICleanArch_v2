@@ -1,11 +1,11 @@
-package es.udc.psi.cleanarchv2.app.domain.usecase;
+package es.udc.psi.cleanarchv2.domain.usecase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import es.udc.psi.cleanarchv2.app.domain.exception.DataUnavailableException;
-import es.udc.psi.cleanarchv2.app.domain.model.Gig;
-import es.udc.psi.cleanarchv2.app.domain.repository.GigRepository;
+import es.udc.psi.cleanarchv2.domain.exception.DataUnavailableException;
+import es.udc.psi.cleanarchv2.domain.model.Gig;
+import es.udc.psi.cleanarchv2.domain.repository.GigRepository;
 
 /**
  * Use case: get the gigs of an artist.
