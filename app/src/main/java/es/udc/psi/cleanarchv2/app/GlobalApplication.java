@@ -16,7 +16,7 @@ public class GlobalApplication extends Application {
     public void onCreate() {
 
         super.onCreate();
-        mContainer = new AppContainer();
+        mContainer = new AppContainer(this);
     }
 
     public AppContainer getContainer() {
