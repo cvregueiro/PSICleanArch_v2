@@ -73,6 +73,7 @@ dependencies {
 
     // Clean Architecture layers
     implementation(project(":domain"))
+    implementation(project(":data"))
 
     // Testing
     testImplementation(libs.junit)
