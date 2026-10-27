@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1249" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <title>Rama 15 · Fuentes remota y local en la arquitectura en cebolla</title>
+  <defs>
+    <marker id="bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c62828"/></marker>
+    <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker>
+  </defs>
+  <rect width="1000" height="1249" fill="#eceff1"/>
+  <rect x="0" y="0" width="1000" height="64" fill="#37474f"/>
+  <text x="500.0" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">Rama 15 · Fuentes remota y local en la arquitectura en cebolla</text>
+  <text x="500.0" y="52" text-anchor="middle" font-size="13" fill="#cfd8dc">Con red: servidor y copia en fichero; sin red: la copia. Solo cambia la capa de datos</text>
+  <rect x="0" y="1100" width="1000" height="1249" fill="#ffffff"/>
+  <circle cx="500" cy="600" r="410" fill="#dbe8ff" stroke="#5b8def" stroke-width="2"/>
+  <path d="M500,190 A410,410 0 0 1 500,1010 Z" fill="#dcf3e2" stroke="#3fa35b" stroke-width="2"/>
+  <circle cx="500" cy="600" r="215" fill="#ffe7c2" stroke="#e39b26" stroke-width="2"/>
+  <circle cx="500" cy="600" r="95" fill="#ffc98a" stroke="#d27a10" stroke-width="2"/>
+  <line x1="500" y1="190" x2="500" y2="385" stroke="#78909c" stroke-dasharray="5,4"/>
+  <line x1="500" y1="815" x2="500" y2="1010" stroke="#78909c" stroke-dasharray="5,4"/>
+  <text x="500" y="104" text-anchor="middle" font-size="14" font-weight="700" fill="#37474f">FRAMEWORKS Y DRIVERS</text>
+  <text x="500.0" y="126" text-anchor="middle" fill="#546e7a" font-size="12.5">ui: Activities · BaseActivity · adaptadores</text>
+  <rect x="354.6" y="133" width="290.8" height="18" rx="9" fill="#ffffff" fill-opacity="0.75" stroke="#f9a825" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <text x="500.0" y="146" text-anchor="middle" fill="#1a1a1a" font-size="12.5">GlobalApplication + AppContainer(Context)</text>
+  <rect x="337.1" y="1023" width="325.8" height="18" rx="9" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+  <text x="500.0" y="1036" text-anchor="middle" fill="#1a1a1a" font-size="12.5" font-weight="700">AndroidNetworkChecker (ConnectivityManager)</text>
+  <rect x="384.2" y="1043" width="231.5" height="18" rx="9" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+  <text x="500.0" y="1056" text-anchor="middle" fill="#1a1a1a" font-size="12.5" font-weight="700">ficheros JSON en files/offline</text>
+  <text x="500.0" y="1076" text-anchor="middle" fill="#546e7a" font-size="12.5">Retrofit · OkHttp · Gson · APIs REST</text>
+  <text x="488" y="262" text-anchor="end" font-size="14" font-weight="700" fill="#1f4fbf">PRESENTACIÓN · :app</text>
+  <text x="339.2" y="285" text-anchor="middle" fill="#546e7a" font-size="12.5">presenter: Presenters · Views · TaskRunner</text>
+  <text x="512" y="262" text-anchor="start" font-size="14" font-weight="700" fill="#22773a">DATOS · :app</text>
+  <rect x="512.0" y="272" width="304.2" height="18" rx="9" fill="#ffffff" fill-opacity="0.75" stroke="#f9a825" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <text x="664.1" y="285" text-anchor="middle" fill="#1a1a1a" font-size="12.5">repository: *RepositoryImp eligen la fuente</text>
+  <rect x="512.0" y="293" width="275.0" height="18" rx="9" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+  <text x="649.5" y="306" text-anchor="middle" fill="#1a1a1a" font-size="12.5" font-weight="700">remote: *RemoteDataSource (Retrofit)</text>
+  <rect x="512.0" y="314" width="354.8" height="18" rx="9" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+  <text x="689.4" y="327" text-anchor="middle" fill="#1a1a1a" font-size="12.5" font-weight="700">local: FileArtistDataSource · FileGigDataSource</text>
+  <rect x="724.6" y="547" width="180.8" height="18" rx="9" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+  <text x="815.0" y="560" text-anchor="middle" fill="#1a1a1a" font-size="12.5" font-weight="700">network: NetworkChecker</text>
+  <text x="389.9" y="838" text-anchor="middle" fill="#546e7a" font-size="12.5">uimodel: UiModels + mappers</text>
+  <rect x="512.0" y="825" width="275.0" height="18" rx="9" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+  <text x="649.5" y="838" text-anchor="middle" fill="#1a1a1a" font-size="12.5" font-weight="700">local: JsonFileStore (JSON con Gson)</text>
+  <rect x="512.0" y="846" width="169.2" height="18" rx="9" fill="#ffffff" fill-opacity="0.75" stroke="#f9a825" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <text x="596.6" y="859" text-anchor="middle" fill="#1a1a1a" font-size="12.5">remote/api · remote/dto</text>
+  <text x="500" y="998" text-anchor="middle" font-size="13" font-weight="700" fill="#37474f">ADAPTADORES DE INTERFAZ</text>
+  <text x="500" y="418" text-anchor="middle" font-size="14" font-weight="700" fill="#6b3d00">CASOS DE USO · :app</text>
+  <text x="500.0" y="440" text-anchor="middle" fill="#546e7a" font-size="12.5">SearchArtistsUseCase</text>
+  <text x="500.0" y="460" text-anchor="middle" fill="#546e7a" font-size="12.5">GetArtistGigsUseCase</text>
+  <text x="500" y="718" text-anchor="middle" font-size="14" font-weight="700" fill="#6b3d00">PUERTOS (interfaces)</text>
+  <text x="500.0" y="740" text-anchor="middle" fill="#546e7a" font-size="12.5">ArtistRepository · GigRepository</text>
+  <text x="500" y="550" text-anchor="middle" font-size="14" font-weight="700" fill="#5a2a00">ENTIDADES · :app</text>
+  <text x="500.0" y="571" text-anchor="middle" fill="#546e7a" font-size="12.5">Artist · Gig</text>
+  <text x="500.0" y="590" text-anchor="middle" fill="#546e7a" font-size="12.5">DataUnavailableException</text>
+  <text x="500.0" y="609" text-anchor="middle" fill="#546e7a" font-size="12.5">ConfigurationException</text>
+  <path d="M659.8,293.0 Q741.3,565.9 504.3,724.0" fill="none" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="3,3" marker-end="url(#ok)"/>
+  <rect x="626.6" y="527.2" width="70.1" height="15" rx="4" fill="#ffffff" fill-opacity="0.85"/><text x="661.7" y="538.7" text-anchor="middle" font-size="11.5" font-style="italic" fill="#2e7d32">implementa</text>
+  <path d="M507.9,1020.0 Q714.6,831.8 807.1,568.0" fill="none" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="3,3" marker-end="url(#ok)"/>
+  <rect x="651.0" y="802.9" width="70.1" height="15" rx="4" fill="#ffffff" fill-opacity="0.85"/><text x="686.1" y="814.4" text-anchor="middle" font-size="11.5" font-style="italic" fill="#2e7d32">implementa</text>
+  <text x="40" y="1122" font-size="15" font-weight="700" fill="#263238">Leyenda</text>
+  <rect x="40.0" y="1131" width="144.5" height="18" rx="9" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+  <text x="112.2" y="1144" text-anchor="middle" fill="#1a1a1a" font-size="12.5" font-weight="700">Nuevo en esta rama</text>
+  <rect x="210.5" y="1131" width="169.2" height="18" rx="9" fill="#ffffff" fill-opacity="0.75" stroke="#f9a825" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <text x="295.1" y="1144" text-anchor="middle" fill="#1a1a1a" font-size="12.5">Modificado en esta rama</text>
+  <text x="446.5" y="1144" text-anchor="middle" fill="#546e7a" font-size="12.5">Ya existía</text>
+  <line x1="513.25" y1="1140" x2="553.25" y2="1140" stroke="#c62828" stroke-width="2.4" stroke-dasharray="7,4" marker-end="url(#bad)"/><text x="563.25" y="1144" font-size="12.5" fill="#263238">Incumple la regla</text>
+  <line x1="683.25" y1="1140" x2="723.25" y2="1140" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="3,3" marker-end="url(#ok)"/><text x="733.25" y="1144" font-size="12.5" fill="#263238">Dependencia hacia dentro</text>
+  <text x="40" y="1178" font-size="13.5" font-weight="700" fill="#2e7d32">✔ El dominio y la presentación no cambian: los nuevos detalles quedan en el anillo exterior.</text>
+  <text x="40" y="1199" font-size="13" fill="#37474f">Un único módulo Gradle (:app): las capas son solo paquetes.</text>
+  <text x="40" y="1219" font-size="13" fill="#37474f">Aviso: AndroidNetworkChecker está en el paquete data pero usa Android; en la rama 16 sale a :app.</text>
+</svg>
