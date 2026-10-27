@@ -1,13 +1,13 @@
-package es.udc.psi.cleanarchv2.app.data.api.dto;
+package es.udc.psi.cleanarchv2.app.data.remote.dto;
 
 import com.google.gson.annotations.SerializedName;
 
-public class CountryDto {
+public class TourDto {
 
     @SerializedName("name")
     private String name;
 
-    public CountryDto(String name) {
+    public TourDto(String name) {
 
         this.name = name;
     }

@@ -42,3 +42,4 @@ Para ver los cambios de una feature: `git log --oneline develop..feature/NN_nomb
 | [`feature/12_services`](docs/12_services.md) | Clean | Dominio: entidades, servicios y `TaskRunner` |
 | [`feature/13_datasources`](docs/13_datasources.md) | Clean | Datasource de artistas |
 | [`feature/14_clean_architecture`](docs/14_clean_architecture.md) | Clean | Clean Architecture en un módulo: paquetes `presentation`/`domain`/`data`, casos de uso, repositorios, `AppContainer` y tests |
+| [`feature/15_remote_local`](docs/15_remote_local.md) | Clean | Fuentes de datos remota y local: con red consulta y guarda en ficheros; sin red lee lo guardado |
