@@ -1,6 +1,6 @@
-package es.udc.psi.cleanarchv2.app.data;
+package es.udc.psi.cleanarchv2.app.data.api;
 
-import es.udc.psi.cleanarchv2.app.data.artist.dto.SearchArtistsDto;
+import es.udc.psi.cleanarchv2.app.data.api.dto.SearchArtistsDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

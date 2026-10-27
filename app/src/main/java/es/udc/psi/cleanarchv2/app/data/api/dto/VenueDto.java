@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.data.gig.dto;
+package es.udc.psi.cleanarchv2.app.data.api.dto;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -1,6 +1,6 @@
-package es.udc.psi.cleanarchv2.app.data;
+package es.udc.psi.cleanarchv2.app.data.api;
 
-import es.udc.psi.cleanarchv2.app.data.gig.dto.SetListsDto;
+import es.udc.psi.cleanarchv2.app.data.api.dto.SetListsDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

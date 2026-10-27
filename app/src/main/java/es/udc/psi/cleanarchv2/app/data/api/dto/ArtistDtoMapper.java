@@ -1,4 +1,4 @@
-package es.udc.psi.cleanarchv2.app.data.artist.dto;
+package es.udc.psi.cleanarchv2.app.data.api.dto;
 
 import java.util.ArrayList;
 import java.util.List;

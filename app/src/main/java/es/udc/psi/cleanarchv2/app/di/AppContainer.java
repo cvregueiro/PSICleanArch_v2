@@ -1,5 +1,7 @@
 package es.udc.psi.cleanarchv2.app.di;
 
+import es.udc.psi.cleanarchv2.BuildConfig;
+import es.udc.psi.cleanarchv2.app.data.api.ApiFactory;
 import es.udc.psi.cleanarchv2.app.data.artist.ArtistDatasourceImp;
 import es.udc.psi.cleanarchv2.app.domain.artist.service.ArtistService;
 import es.udc.psi.cleanarchv2.app.domain.artist.service.ArtistServiceImp;
@@ -13,13 +15,19 @@ import es.udc.psi.cleanarchv2.app.executor.TaskRunner;
  */
 public class AppContainer {
 
+    // MusicBrainz rejects requests without a meaningful User-Agent
+    private static final String USER_AGENT = "PSiCleanArch/" + BuildConfig.VERSION_NAME + " ( cvazquez@udc.es )";
+
     private final ArtistService mArtistService;
     private final GigService mGigService;
 
     public AppContainer() {
 
-        mArtistService = new ArtistServiceImp(new ArtistDatasourceImp());
-        mGigService = new GigServiceImp();
+        mArtistService = new ArtistServiceImp(
+                new ArtistDatasourceImp(ApiFactory.createMusicBrainzApi(USER_AGENT, BuildConfig.DEBUG)));
+
+        String apiKey = BuildConfig.SETLISTFM_API_KEY;
+        mGigService = new GigServiceImp(ApiFactory.createSetListFmApi(apiKey, BuildConfig.DEBUG), apiKey);
     }
 
     public ArtistService artistService() {
