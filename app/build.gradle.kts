@@ -65,12 +65,6 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.recyclerview)
 
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson) { exclude(module = "gson") }
-    implementation(libs.gson)
-    implementation(libs.okhttp.logging.interceptor)
-
     // Clean Architecture layers
     implementation(project(":domain"))
     implementation(project(":data"))
