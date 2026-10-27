@@ -13,9 +13,8 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import es.udc.psi.cleanarchv2.R;
-import es.udc.psi.cleanarchv2.app.data.artist.ArtistDatasourceImp;
-import es.udc.psi.cleanarchv2.app.domain.artist.service.ArtistServiceImp;
-import es.udc.psi.cleanarchv2.app.executor.TaskRunner;
+import es.udc.psi.cleanarchv2.app.GlobalApplication;
+import es.udc.psi.cleanarchv2.app.di.AppContainer;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
 import es.udc.psi.cleanarchv2.app.presentation.artist.adapter.ArtistAdapter;
 import es.udc.psi.cleanarchv2.app.presentation.artist.presenter.ArtistsPresenter;
@@ -41,7 +40,8 @@ public class ArtistsActivity extends BaseActivity<ActivityMainBinding>
 
         setUpView();
 
-        mPresenter = new ArtistsPresenterImp(this, new ArtistServiceImp(new ArtistDatasourceImp()), new TaskRunner());
+        AppContainer container = ((GlobalApplication) getApplication()).getContainer();
+        mPresenter = new ArtistsPresenterImp(this, container.artistService(), container.taskRunner());
         mPresenter.initFlow();
     }
 

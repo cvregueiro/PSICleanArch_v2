@@ -14,8 +14,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import es.udc.psi.cleanarchv2.R;
-import es.udc.psi.cleanarchv2.app.domain.gig.service.GigServiceImp;
-import es.udc.psi.cleanarchv2.app.executor.TaskRunner;
+import es.udc.psi.cleanarchv2.app.GlobalApplication;
+import es.udc.psi.cleanarchv2.app.di.AppContainer;
 import es.udc.psi.cleanarchv2.app.presentation.BaseActivity;
 import es.udc.psi.cleanarchv2.app.presentation.gig.adapter.GigAdapter;
 import es.udc.psi.cleanarchv2.app.presentation.gig.presenter.GigsPresenter;
@@ -50,7 +50,8 @@ public class GigsActivity extends BaseActivity<ActivityGigsBinding> implements G
 
         setUpView();
 
-        mPresenter = new GigsPresenterImp(this, new GigServiceImp(), new TaskRunner());
+        AppContainer container = ((GlobalApplication) getApplication()).getContainer();
+        mPresenter = new GigsPresenterImp(this, container.gigService(), container.taskRunner());
         mPresenter.initFlow(getIntent().getStringExtra(EXTRA_ARTIST_ID));
     }
 
