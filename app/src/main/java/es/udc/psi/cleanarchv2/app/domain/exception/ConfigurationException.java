@@ -1,11 +1,9 @@
 package es.udc.psi.cleanarchv2.app.domain.exception;
 
-import java.io.IOException;
-
 /**
- * The source of the data is not configured (for example, an API key is missing).
+ * The data cannot be obtained because the application is not configured to access it.
  */
-public class ConfigurationException extends IOException {
+public class ConfigurationException extends DataUnavailableException {
 
     public ConfigurationException(String message) {
 

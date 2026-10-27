@@ -6,7 +6,7 @@ import java.util.List;
 
 import es.udc.psi.cleanarchv2.app.domain.exception.ConfigurationException;
 import es.udc.psi.cleanarchv2.app.domain.model.Gig;
-import es.udc.psi.cleanarchv2.app.domain.gig.service.GigService;
+import es.udc.psi.cleanarchv2.app.domain.usecase.GetArtistGigsUseCase;
 import es.udc.psi.cleanarchv2.app.executor.TaskRunner;
 import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModel;
 import es.udc.psi.cleanarchv2.app.presentation.gig.model.GigUiModelMapper;
@@ -17,15 +17,15 @@ public class GigsPresenterImp implements GigsPresenter {
 
     private GigsView mView;
 
-    private final GigService mGigService;
+    private final GetArtistGigsUseCase mGetArtistGigsUseCase;
     private final TaskRunner mTaskRunner;
 
     public GigsPresenterImp(GigsView view,
-                            GigService gigService,
+                            GetArtistGigsUseCase getArtistGigsUseCase,
                             TaskRunner taskRunner) {
 
         mView = view;
-        mGigService = gigService;
+        mGetArtistGigsUseCase = getArtistGigsUseCase;
         mTaskRunner = taskRunner;
     }
 
@@ -44,7 +44,7 @@ public class GigsPresenterImp implements GigsPresenter {
 
     private void getGigs(String artistId) {
 
-        mTaskRunner.execute(() -> mGigService.searchGigs(artistId), new TaskRunner.Callback<List<Gig>>() {
+        mTaskRunner.execute(() -> mGetArtistGigsUseCase.execute(artistId), new TaskRunner.Callback<List<Gig>>() {
 
             @Override
             public void onSuccess(List<Gig> gigs) {

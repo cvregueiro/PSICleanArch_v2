@@ -51,7 +51,7 @@ public class GigsActivity extends BaseActivity<ActivityGigsBinding> implements G
         setUpView();
 
         AppContainer container = ((GlobalApplication) getApplication()).getContainer();
-        mPresenter = new GigsPresenterImp(this, container.gigService(), container.taskRunner());
+        mPresenter = new GigsPresenterImp(this, container.getArtistGigsUseCase(), container.taskRunner());
         mPresenter.initFlow(getIntent().getStringExtra(EXTRA_ARTIST_ID));
     }
 
