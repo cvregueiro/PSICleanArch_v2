@@ -20,9 +20,14 @@ setlistfm.apikey=TU_API_KEY
 
 ## Estructura de ramas (gitflow)
 
-- `master`: proyecto inicial (plantilla de Android Studio).
-- `develop`: integración de todas las features, con un *merge* `--no-ff` por feature.
+- `master`: versiones publicadas. Cada versión es un *merge* de una rama `release/x.y` con su etiqueta `vx.y`.
+- `develop`: integración de todas las features, con un *merge* `--no-ff` por feature. Es la rama por defecto.
 - `feature/NN_*`: cada paso de la evolución, en varios commits pequeños y con su explicación en `docs/`.
+- `release/x.y`: preparación de una versión. Sale de `develop` y se fusiona en `master` y en `develop`.
+
+| Versión | Rama | Contenido |
+|---------|------|-----------|
+| [`v1.0`](docs/release_1.0.md) | `release/1.0` | Features 01 a 16: de la aplicación monolítica a la Clean Architecture con módulos |
 
 Para ver los cambios de una feature: `git log --oneline develop..feature/NN_nombre` o `git log -p feature/NN_nombre`.
 
